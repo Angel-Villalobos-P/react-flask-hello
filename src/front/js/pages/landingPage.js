@@ -6,10 +6,12 @@ import { Caracteristicas2 } from "../component/landingpage/caracteristicas2";
 import { LandingCarousel } from "../component/landingpage/landingcarousel";
 import { Precios } from "../component/landingpage/precios";
 import { Contacto } from "../component/landingpage/contacto";
+import { Navbar } from "../component/navbar";
 
 export const LandingPage = () => {
 	return (
 		<div className="container">
+			<Navbar />
 			<LandingCarousel />
 			<Caracteristicas1 />
 			<Caracteristicas2 />
