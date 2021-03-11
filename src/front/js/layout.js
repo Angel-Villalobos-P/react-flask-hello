@@ -5,6 +5,10 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { LandingPage } from "./pages/landingPage";
+import { ContactoView } from "./pages/contacto";
+import { CaracteristicasView } from "./pages/caracteristicas";
+import { PreciosView } from "./pages/precios";
 import injectContext from "./store/appContext";
 
 //folder popUpsLandingPage
@@ -17,6 +21,7 @@ import { VerifyMessage } from "./component/popUpsLandingPage/verifyMessage";
 import { NewCostumer } from "./component/newCostumer";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import Sidebar from "./component/Sidebar";
 
 //create your first component
 const Layout = () => {
@@ -28,13 +33,20 @@ const Layout = () => {
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					{/* <Navbar /> */}
+					<Sidebar />
 					<Switch>
 						<Route exact path="/">
-							<Home />
+							<LandingPage />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
+						<Route exact path="/contacto">
+							<ContactoView />
+						</Route>
+						<Route exact path="/caracteristicas">
+							<CaracteristicasView />
+						</Route>
+						<Route exact path="/precios">
+							<PreciosView />
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
