@@ -1,10 +1,12 @@
 import React from "react";
 
 export const NewCostumer = () => {
+	//Acá se puede usar state global con las actions para agregar nuevos clientes
+
 	return (
 		<div>
 			<button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
-				Agregar nuevo cliente
+				Agregar cliente
 			</button>
 
 			<div className="modal fade" id="exampleModal1" aria-labelledby="exampleModalLabel" aria-hidden="true">

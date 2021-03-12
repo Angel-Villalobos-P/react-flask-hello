@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ClienteCard from "../component/ClienteCard";
+import Sidebar from "../component/Sidebar";
+import { NewCostumer } from "../component/newCostumer";
 
 const ClientesView = () => {
 	//Acá se obtienen todos los clientes y se renderiza un card por cada uno
-	//Usando global state
+	//Usar global state
 
 	const [clientes, setClientes] = useState([]);
 
@@ -21,23 +23,48 @@ const ClientesView = () => {
 	}, []);
 
 	return (
-		<div className="container-fluid">
-			<div id="search-bar" className="input-group d-flex flex-row justify-content-end">
-				<div className="form-outline">
-					<input type="search" id="form" className="form-control" placeholder="Buscar" />
+		<>
+			<Sidebar />
+			<div className="container h-100">
+				<div className="row">
+					<div className="col">
+						<div id="search-bar" className="input-group d-flex flex-row justify-content-end">
+							<div className="form-outline">
+								<input type="search" id="form" className="form-control" placeholder="Buscar" />
+							</div>
+							<button type="button" className="btn btn-primary">
+								<i className="fas fa-search" />
+							</button>
+							<NewCostumer />
+						</div>
+					</div>
 				</div>
-				<button type="button" className="btn btn-primary">
-					<i className="fas fa-search" />
-				</button>
-				<button id type="button" className="btn btn-secondary">
-					Agregar cliente
-				</button>
-			</div>
-			<ClienteCard />
-			{/* {clientes.map((cliente, i) => {
+				<div className="row border">
+					{/* <div className="col-auto border d-flex flex-row"> */}
+					<div className="col-auto">
+						<ClienteCard />
+					</div>
+					<div className="col-auto">
+						<ClienteCard />
+					</div>
+					<div className="col-auto ">
+						<ClienteCard />
+					</div>
+					<div className="col-auto ">
+						<ClienteCard />
+					</div>
+					<div className="col-auto ">
+						<ClienteCard />
+					</div>
+					<div className="col-auto ">
+						<ClienteCard />
+					</div>
+				</div>
+				{/* {clientes.map((cliente, i) => {
 				return <ClienteCard key={i} clientes={cliente} />;
 			})} */}
-		</div>
+			</div>
+		</>
 	);
 };
 

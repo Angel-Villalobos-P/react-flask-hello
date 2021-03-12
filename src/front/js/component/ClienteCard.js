@@ -1,11 +1,14 @@
 import React from "react";
 import "../../styles/ClienteCard.scss";
+import { Link } from "react-router-dom";
 
 const ClienteCard = () => {
 	return (
 		<div id="cliente-card" className="card border-primary mb-3">
 			<div className="card-header">
-				<h5>Nombre del cliente</h5>
+				<Link to="/">
+					<h5>Nombre del cliente</h5>
+				</Link>
 			</div>
 			<div className="row d-flex justify-content-center">
 				<div className="col-4">

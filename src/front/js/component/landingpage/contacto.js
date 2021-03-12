@@ -11,7 +11,7 @@ export const Contacto = () => (
 				<input
 					type="email"
 					className="form-control"
-					id="exampleInputEmail1"
+					id="exampleInputNombre"
 					aria-describedby="emailHelp"
 					placeholder="Nombre"
 				/>
@@ -22,7 +22,7 @@ export const Contacto = () => (
 				<input
 					type="email"
 					className="form-control"
-					id="exampleInputEmail1"
+					id="exampleInputEmail"
 					aria-describedby="emailHelp"
 					placeholder="Correo"
 				/>
