@@ -1,16 +1,19 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
+//folder landing page
+import { CaracteristicasView } from "./pages/caracteristicas";
+{
+	/*import { LandingPage } from "./pages/landingPage";*/
+}
+//folder views
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
-import { LandingPage } from "./pages/landingPage";
 import { ContactoView } from "./pages/contacto";
-import { CaracteristicasView } from "./pages/caracteristicas";
 import { PreciosView } from "./pages/precios";
 import injectContext from "./store/appContext";
-
+import { ProyectosView } from "./pages/proyectos";
 //folder popUpsLandingPage
 import { Login } from "./component/popUpsLandingPage/login";
 import { SignUp } from "./component/popUpsLandingPage/signUp";
@@ -22,6 +25,8 @@ import { NewCostumer } from "./component/newCostumer";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Sidebar from "./component/Sidebar";
+import { AddProyect } from "./component/addNewProyect";
+import { UserName } from "./component/userName";
 
 //create your first component
 const Layout = () => {
@@ -33,12 +38,12 @@ const Layout = () => {
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					{/* <Navbar /> */}
+					{/*<Navbar />*/}
 					<Sidebar />
 					<Switch>
-						<Route exact path="/">
+						{/*<Route exact path="/">
 							<LandingPage />
-						</Route>
+    </Route>*/}
 						<Route exact path="/contacto">
 							<ContactoView />
 						</Route>
@@ -65,6 +70,15 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/verifyMessage">
 							<VerifyMessage />
+						</Route>
+						<Route exact path="/proyectos">
+							<ProyectosView />
+						</Route>
+						<Route exact path="/addNewProyect">
+							<AddProyect />
+						</Route>
+						<Route exact path="/userName">
+							<UserName />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

@@ -19,13 +19,13 @@ CSS Sign up
 CSS REcovery
 */
 
-.card {
+/*.card {
     margin-top: 30px;
     width: 600px;
     height: 500px;
     position: relative;
     left: 450px;
-}
+}*/
 
 .icon {
     position: relative;
@@ -83,3 +83,30 @@ CSS NewCostumer
     margin-top: 80px;
 }
 
+/*
+CSS proyectos views
+*/
+.proIcon {
+    font-size: 25px
+}
+
+/*
+CSS Serch parts
+*/
+#form {width: 800px;
+    margin-top: 10px;
+    position: relative;
+    left: 244px;   
+}
+
+#btn{
+    position: relative;
+    margin-right: 10px;
+    left: 200px;
+    margin-top: 10px;
+}
+
+.hello{
+    margin-left: 50px;
+    font-size: 30px;
+}
