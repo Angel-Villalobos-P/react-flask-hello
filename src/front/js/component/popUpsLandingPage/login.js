@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 export const Login = () => {
 	return (
 		<div>
-			<button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-				Iniciar Sesión
-			</button>
 			<div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div className="modal-dialog">
 					<div className="modal-content">

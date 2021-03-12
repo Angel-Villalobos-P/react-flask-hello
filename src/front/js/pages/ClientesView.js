@@ -3,7 +3,7 @@ import ClienteCard from "../component/ClienteCard";
 
 const ClientesView = () => {
 	//Acá se obtienen todos los clientes y se renderiza un card por cada uno
-	//Usnado global state
+	//Usando global state
 
 	const [clientes, setClientes] = useState([]);
 
