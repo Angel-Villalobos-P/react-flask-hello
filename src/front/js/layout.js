@@ -9,6 +9,7 @@ import { LandingPage } from "./pages/landingPage";
 import { ContactoView } from "./pages/contacto";
 import { CaracteristicasView } from "./pages/caracteristicas";
 import { PreciosView } from "./pages/precios";
+import { InicioView } from "./pages/inicioView";
 import injectContext from "./store/appContext";
 
 //folder popUpsLandingPage
@@ -65,6 +66,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/verifyMessage">
 							<VerifyMessage />
+						</Route>
+						<Route exact path="/inicio">
+							<InicioView />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
