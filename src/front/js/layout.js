@@ -12,6 +12,7 @@ import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { ContactoView } from "./pages/contacto";
 import { PreciosView } from "./pages/precios";
+import { InicioView } from "./pages/inicioView";
 import injectContext from "./store/appContext";
 import { ProyectosView } from "./pages/proyectos";
 //folder popUpsLandingPage
@@ -79,6 +80,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/userName">
 							<UserName />
+						<Route exact path="/inicio">
+							<InicioView />
+
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
