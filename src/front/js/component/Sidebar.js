@@ -4,7 +4,7 @@ import { SidebarItems } from "./SidebarItems";
 import * as AiIcons from "react-icons/ai";
 import { IconContext } from "react-icons";
 import "../../styles/Sidebar.scss";
-import { Navbar } from "./navbar";
+import { NavbarApp } from "./NavbarApp";
 
 const Sidebar = () => {
 	const [mostrar, setMostrar] = useState(true);
@@ -22,6 +22,7 @@ const Sidebar = () => {
 				</button>
 				<span> </span>
 			</div>
+			{/* <NavbarApp /> */}
 			<nav className="nav-menu active">
 				<ul className="nav-menu-items">
 					{/* <li className="nav-text">

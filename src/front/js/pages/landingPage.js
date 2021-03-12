@@ -7,6 +7,7 @@ import { LandingCarousel } from "../component/landingpage/landingcarousel";
 import { Precios } from "../component/landingpage/precios";
 import { Contacto } from "../component/landingpage/contacto";
 import { Navbar } from "../component/navbar";
+import { Footer } from "../component/footer";
 
 export const LandingPage = () => {
 	return (

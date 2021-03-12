@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Login } from "./popUpsLandingPage/login";
+import { SignUp } from "./popUpsLandingPage/signUp";
 
 export const Navbar = () => {
 	return (
@@ -19,17 +21,19 @@ export const Navbar = () => {
 				<Link to="/precios">
 					<a className="ml-2 text-dark">Precios</a>
 				</Link>
-				<Link to="/">
+				{/* <Link to="/login">
 					<button type="button" className="btn btn-light border-secondary text-secondary ml-2">
 						Iniciar Sesión
 					</button>
 				</Link>
-				<Link to="/">
+				<Link to="/signUp">
 					<button type="button" className="btn btn-light bg-secondary text-white ml-2">
 						Registrarse
 					</button>
-				</Link>
+				</Link> */}
 			</div>
+			<Login />
+			<SignUp />
 		</nav>
 	);
 };

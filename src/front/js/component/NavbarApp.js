@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const NavbarApp = () => {
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
+			{/* <Link to="/">
 				<span className="navbar-brand mb-0 h1">PlanificApp</span>
 			</Link>
 			<div className="ml-auto">
@@ -13,7 +13,12 @@ export const NavbarApp = () => {
 				</button>
 				<span> </span>
 				<span className="navbar-brand mb-0 h1">user name</span>
-			</div>
+			</div> */}
+			<span className="navbar-brand mb-0 h1 nav-text">user name</span>
+			<button type="button" className="btn btn-outline-dark rounded-circle">
+				<i className="fas fa-user-circle" />
+			</button>
+			<span> </span>
 		</nav>
 	);
 };
