@@ -8,6 +8,7 @@ export const NavbarApp = () => {
 				<span className="navbar-brand mb-0 h1">PlanificApp</span>
 			</Link>
 			<div className="ml-auto">
+              
 				<button type="button" className="btn btn-outline-dark rounded-circle">
 					<i className="fas fa-user-circle" />
 				</button>

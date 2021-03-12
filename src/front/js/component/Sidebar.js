@@ -17,9 +17,15 @@ const Sidebar = () => {
 		<div className="sidebar">
 			<div className="navbar d-flex flex-row-reverse">
 				<span className="navbar-brand mb-0 h1 nav-text">user name</span>
-				<button type="button" className="btn btn-outline-dark rounded-circle">
-					<i className="fas fa-user-circle" />
-				</button>
+				<Link to="/userName">
+					<button
+						type="button"
+						className="btn btn-outline-dark rounded-circle"
+						data-toggle="modal"
+						data-target="#exampleModal7">
+						<i className="fas fa-user-circle" />
+					</button>
+				</Link>
 				<span> </span>
 			</div>
 			{/* <NavbarApp /> */}
