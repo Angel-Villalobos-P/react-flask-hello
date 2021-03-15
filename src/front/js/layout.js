@@ -29,7 +29,9 @@ import Sidebar from "./component/Sidebar";
 import ClientesView from "./pages/ClientesView";
 import { AddProyect } from "./component/addNewProyect";
 import { UserName } from "./component/userName";
-
+import { LandingPage } from "./pages/landingPage";
+import { Clientes } from "./pages/Clientes";
+import { Inicio } from "./pages/Inicio";
 
 //create your first component
 const Layout = () => {
@@ -38,21 +40,24 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div className="d-flex flex-column h-100">
+		<div className="d-flex flex-column h-100 main-container">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					{/* <Navbar /> */}
 					{/* <Sidebar /> */}
 					<Switch>
 						<Route exact path="/clientes">
-							<ClientesView />
+							<Clientes />
 						</Route>
+						{/* <Route exact path="/clientes">
+							<ClientesView />
+						</Route> */}
 						<Route exact path="/recovery">
 							<Recovery />
 						</Route>
 						<Route exact path="/">
 							<LandingPage />
-            </Route>
+						</Route>
 						<Route exact path="/contacto">
 							<ContactoView />
 						</Route>
@@ -88,9 +93,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/userName">
 							<UserName />
+						</Route>
 						<Route exact path="/inicio">
-							<InicioView />
-
+							<Inicio />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

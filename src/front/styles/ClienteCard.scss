@@ -1,8 +1,10 @@
 #cliente-card {
-    max-width: 20rem;
+    //max-width: 20rem; 
     max-height: 15rem;
     margin-top: 20px;
-    margin-left: 20px;
+    border: 0px;
+    width: 350px;
+   // margin-left: 20px;
 }
 
 img {
@@ -10,14 +12,20 @@ img {
 }
 
 .card-header {
-    color: rgb(48, 125, 246);
+    //color: rgb(48, 125, 246);
     text-align: center;
     margin: 15px;
+    background-color: rgba(0, 0, 0, 0);
 }
 
-/*
-id proyecto
-*/
+.nombre-cliente {
+    color: #212529;
+}
+
+.card-text {
+    color: #212529;
+}
+
 
 #proyecto-card{
     width: 500px;
@@ -27,4 +35,12 @@ id proyecto
     margin-top: 80px;
     margin-left: 10px;
     border-radius: none;
+}
+
+#cliente-card {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
 }

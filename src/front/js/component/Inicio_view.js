@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-export const Inicio = () => (
-	<div className="row justify-content-around">
+export const Inicio_view = () => (
+	<div className="row justify-content-around inicio-cards">
 		{/* Nombre del Cliente */}
 		<div className="col-12 text-white inicioBar d-flex justify-content-center pt-4">
 			<h1>Nombre del Cliente</h1>

@@ -3,7 +3,12 @@ import React from "react";
 export const UserName = () => {
 	return (
 		<div>
-			<div className="modal fade" id="exampleModal7" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div
+				className="modal fade"
+				id="user-setting"
+				aria-labelledby="exampleModalLabel"
+				aria-hidden="true"
+				data-backdrop="false">
 				<div className="modal-dialog">
 					<div className="modal-content">
 						<div className="modal-header">

@@ -110,3 +110,29 @@ CSS Serch parts
     margin-left: 50px;
     font-size: 30px;
 }
+
+.vista-inicio {
+    // background: rgb(199,198,215);
+    // background: linear-gradient(180deg, rgba(199,198,215,1) 0%, rgba(158,158,226,1) 100%, rgba(0,212,255,1) 100%);
+
+    position: relative;
+    background: hsla(242, 58%, 73%, 1);
+    background: linear-gradient(90deg, hsla(242, 58%, 73%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(242, 58%, 73%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(242, 58%, 73%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+
+}
+
+.vista-inicio.inicio-cards {
+    position: absolute;
+    left: 10px;
+}
+
+// .main-container {
+//     position: relative;
+// }
+
+// .main-container.vista-inicio {
+//     position: absolute;
+//     left: 5px;
+// }
