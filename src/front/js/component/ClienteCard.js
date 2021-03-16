@@ -4,15 +4,16 @@ import { Link } from "react-router-dom";
 
 const ClienteCard = () => {
 	return (
-		<div id="cliente-card" className="card border-primary mb-3">
+		<div id="cliente-card" className="card border-primary has-shadow">
 			<div className="card-header">
 				<Link to="/">
-					<h5>Nombre del cliente</h5>
+					<h5 className="nombre-cliente">Nombre del cliente</h5>
 				</Link>
 			</div>
 			<div className="row d-flex justify-content-center">
 				<div className="col-4">
 					<img className="rounded float-left" src="https://picsum.photos/100/100" />
+					{/* <img className="img-fluid rounded-circle float-left" src="https://picsum.photos/100/100" /> */}
 				</div>
 				<div className="col-8">
 					<div className="card-body text-primary">

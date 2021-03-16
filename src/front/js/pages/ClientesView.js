@@ -30,7 +30,7 @@ const ClientesView = () => {
 					<div className="col">
 						<div id="search-bar" className="input-group d-flex flex-row justify-content-end">
 							<div className="form-outline">
-								<input type="search" id="form" className="form-control" placeholder="Buscar" />
+								<input type="search" id="form-cliente" className="form-control" placeholder="Buscar" />
 							</div>
 							<button type="button" className="btn btn-primary">
 								<i className="fas fa-search" />
@@ -39,7 +39,7 @@ const ClientesView = () => {
 						</div>
 					</div>
 				</div>
-				<div className="row border">
+				<div className="row">
 					{/* <div className="col-auto border d-flex flex-row"> */}
 					<div className="col-auto">
 						<ClienteCard />
