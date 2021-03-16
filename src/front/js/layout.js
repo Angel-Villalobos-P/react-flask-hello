@@ -3,9 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 //folder landing page
 import { CaracteristicasView } from "./pages/caracteristicas";
-{
-	/*import { LandingPage } from "./pages/landingPage";*/
-}
+
 //folder views
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
@@ -32,6 +30,8 @@ import { UserName } from "./component/userName";
 import { LandingPage } from "./pages/landingPage";
 import { Clientes } from "./pages/Clientes";
 import { Inicio } from "./pages/Inicio";
+import { Calendario } from "./pages/Calendario";
+import { Tareas } from "./pages/Tareas";
 
 //create your first component
 const Layout = () => {
@@ -49,9 +49,9 @@ const Layout = () => {
 						<Route exact path="/clientes">
 							<Clientes />
 						</Route>
-						{/* <Route exact path="/clientes">
-							<ClientesView />
-						</Route> */}
+						<Route exact path="/calendario">
+							<Calendario />
+						</Route>
 						<Route exact path="/recovery">
 							<Recovery />
 						</Route>
@@ -87,6 +87,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/proyectos">
 							<ProyectosView />
+						</Route>
+						<Route exact path="/tareas">
+							<Tareas />
 						</Route>
 						<Route exact path="/addNewProyect">
 							<AddProyect />

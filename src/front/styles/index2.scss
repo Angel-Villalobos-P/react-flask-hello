@@ -155,7 +155,7 @@ nav.side-navbar ul li li.active > a {
   z-idex: 8;
 }
 
-.clientes-view {
+.view {
     position: relative;
     // background: hsla(242, 58%, 73%, 1);
     // background: linear-gradient(90deg, hsla(242, 58%, 73%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
@@ -225,3 +225,163 @@ nav.side-navbar ul li li.active > a {
   background-color: #5a48ea;
   border-color: #503ce9;
 }
+
+/*
+* ========================================
+*             DASHBOARD
+* ========================================
+*/
+
+div.dashboard-counts .icon {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  min-width: 40px;
+  max-width: 40px;
+  border-radius: 50%;
+}
+
+div.dashboard-counts .title {
+  font-size: 1.1em;
+  font-weight: 300;
+  color: #777;
+  margin: 0 20px;
+}
+
+div.dashboard-counts .progress {
+  margin-top: 10px;
+  height: 4px;
+}
+
+div.dashboard-counts .number {
+  font-size: 1.8em;
+  font-weight: 300;
+  margin-right: 20px;
+}
+
+div.dashboard-counts .number strong {
+  font-weight: 700;
+}
+
+div.dashboard-counts .row {
+  padding: 30px 15px;
+  margin: 0;
+}
+
+div.dashboard-counts div[class*='col-'] .item {
+  border-right: 1px solid #eee;
+  padding: 15px 0;
+}
+
+div.dashboard-counts div[class*='col-']:last-of-type .item {
+  border-right: none;
+}
+
+@media (max-width: 1199px) {
+  div.dashboard-counts div[class*='col-']:nth-of-type(2) .item {
+    border-right: none;
+  }
+}
+
+@media (max-width: 575px) {
+  div.dashboard-counts div[class*='col-'] .item {
+    border-right: none;
+  }
+}
+
+.bg-violet {
+  background: #796AEE !important;
+  color: #fff;
+}
+
+.bg-violet:hover {
+  color: #fff;
+}
+
+.bg-white {
+  background: #fff !important;
+}
+
+
+
+/*
+* ===========================
+*           Tareas
+* ===========================
+*/
+
+// .tarea .row {
+//   margin: 0;
+//   padding: 15px 0;
+//   margin-bottom: 15px;
+//   margin-top: 15px;
+// }
+
+// .tarea div[class*='col-'] {
+//   border-right: 1px solid #eee;
+// }
+
+// .tarea .text h3 {
+//   margin-bottom: 0;
+//   color: #555;
+// }
+
+// .tarea .text small {
+//   color: #aaa;
+//   font-size: 0.75em;
+// }
+
+// .tarea .tarea-date span {
+//   font-size: 0.9em;
+//   color: #999;
+// }
+
+// .tarea .image {
+//   max-width: 50px;
+//   min-width: 50px;
+//   height: 50px;
+//   margin-right: 15px;
+// }
+
+// .tarea .time,
+// .tarea .comments,
+// .tarea .tarea-progress {
+//   color: #999;
+//   font-size: 0.9em;
+//   margin-right: 20px;
+// }
+
+// .tarea .time i,
+// .tarea .comments i,
+// .tarea .tarea-progress i {
+//   margin-right: 5px;
+// }
+
+// .tarea .tarea-progress {
+//   width: 200px;
+// }
+
+// .tarea .tarea-progress .progress {
+//   height: 4px;
+// }
+
+// .tarea .card {
+//   margin-bottom: 0;
+// }
+
+// @media (max-width: 991px) {
+//   .tarea .right-col {
+//     margin-top: 20px;
+//     margin-left: 65px;
+//   }
+//   .tarea .tarea-progress {
+//     width: 150px;
+//   }
+// }
+
+// @media (max-width: 480px) {
+//   .tarea .tarea-progress {
+//     display: none;
+//   }
+// }

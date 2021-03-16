@@ -5,7 +5,7 @@ export const NewCostumer = () => {
 
 	return (
 		<div>
-			<button
+			{/* <button
 				id="btn-nuevo-cliente"
 				type="button"
 				className="btn btn-outline-dark"
@@ -14,7 +14,7 @@ export const NewCostumer = () => {
 				<i className="fas fa-plus" />
 				<span />
 				Agregar cliente
-			</button>
+			</button> */}
 			<div
 				className="modal fade"
 				id="form-nuevo-cliente"
