@@ -1,15 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { SidebarItems } from "../component/SidebarItems";
-import ClienteCard from "../component/ClienteCard";
-import { Clientes_view } from "./Clientes_view";
-import { NewCostumer } from "../component/newCostumer";
-import { UserName } from "../component/userName";
 import { FormUsuario } from "../component/FormUsuario";
-import { Inicio_view } from "../component/Inicio_view";
-import { Inicio_view2 } from "./Inicio_view2";
+import { Tareas_view } from "./Tareas_view";
+import { SidebarItems } from "../component/SidebarItems";
 
-export const Inicio = () => {
+export const Tareas = () => {
 	return (
 		<div className="page">
 			<div className="header">
@@ -93,9 +88,8 @@ export const Inicio = () => {
 						})}
 					</ul>
 				</nav>
-				<div className="content-inner">
-					{/* <Inicio_view /> */}
-					<Inicio_view2 />
+				<div className="content-inner vw-100">
+					<Tareas_view />
 				</div>
 			</div>
 		</div>

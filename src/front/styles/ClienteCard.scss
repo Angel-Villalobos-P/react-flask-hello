@@ -44,3 +44,39 @@ img {
     line-height: 1.5;
     color: #212529;
 }
+
+.card-menu {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.card-menu .dropdown-toggle {
+    color: #999;
+    background: none;
+    border: none;
+}
+
+.card-menu .dropdown-toggle:after {
+  display: none;
+}
+
+.card-menu .dropdown-menu {
+  border: none;
+  min-width: auto;
+  font-size: 0.9em;
+  border-radius: 0;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1), -2px -2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1), -2px -2px 3px rgba(0, 0, 0, 0.1);
+}
+
+// .editar, .eliminar {
+//     margin-right: 4px;
+// }
+
+
+.card-menu .dropdown-menu a i {
+    margin-right: 10px;
+    -webkit-transition: none;
+    transition: none;
+}
