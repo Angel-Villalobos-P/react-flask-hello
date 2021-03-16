@@ -50,14 +50,8 @@ export const Timer = props => {
 			<div>{secondsPassed.current}</div> */}
 			<small>
 				<i className="far fa-calendar-alt" style={{ marginRight: "2px" }} />
-				<small
-					className="hidden-sm-down"
-					style={{ marginRight: "5px" }}
-					data-toggle="tooltip"
-					title="Fecha de entrega">
-					16 de mar
-				</small>
-				<i className="far fa-clock" style={{ marginRight: "2px" }} />
+				16 de mar
+				<i className="far fa-clock" style={{ marginRight: "2px", marginLeft: "5px" }} />
 				Temporizador {time}
 			</small>
 			{/* <small>Horas {totalHoras}</small> */}
