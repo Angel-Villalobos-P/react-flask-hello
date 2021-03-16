@@ -7,8 +7,8 @@ import { CaracteristicasView } from "./pages/caracteristicas";
 	/*import { LandingPage } from "./pages/landingPage";*/
 }
 //folder views
-import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
+//import { Home } from "./pages/home";
+//import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { ContactoView } from "./pages/contacto";
 import { PreciosView } from "./pages/precios";
@@ -23,8 +23,8 @@ import { VerifyMessage } from "./component/popUpsLandingPage/verifyMessage";
 
 // folder component
 import { NewCostumer } from "./component/newCostumer";
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+//import { Navbar } from "./component/navbar";
+//import { Footer } from "./component/footer";
 import Sidebar from "./component/Sidebar";
 import ClientesView from "./pages/ClientesView";
 import { AddProyect } from "./component/addNewProyect";
@@ -32,6 +32,7 @@ import { UserName } from "./component/userName";
 import { LandingPage } from "./pages/landingPage";
 import { Clientes } from "./pages/Clientes";
 import { Inicio } from "./pages/Inicio";
+
 
 //create your first component
 const Layout = () => {
@@ -55,7 +56,7 @@ const Layout = () => {
 						<Route exact path="/recovery">
 							<Recovery />
 						</Route>
-						<Route exact path="/">
+						<Route exact path="/landingpage">
 							<LandingPage />
 						</Route>
 						<Route exact path="/contacto">
@@ -95,7 +96,13 @@ const Layout = () => {
 							<UserName />
 						</Route>
 						<Route exact path="/inicio">
-							<Inicio />
+							<InicioView />
+						</Route>
+						<Route exact path="/Sidebar">
+							<Sidebar />
+
+						
+
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
