@@ -98,7 +98,7 @@ const Layout = () => {
 							<UserName />
 						</Route>
 						<Route exact path="/inicio">
-							<InicioView />
+							<Inicio />
 						</Route>
 						<Route exact path="/Sidebar">
 							<Sidebar />
