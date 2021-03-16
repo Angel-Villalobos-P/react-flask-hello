@@ -33,7 +33,6 @@ import { Inicio } from "./pages/Inicio";
 import { Calendario } from "./pages/Calendario";
 import { Tareas } from "./pages/Tareas";
 
-
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -99,13 +98,10 @@ const Layout = () => {
 							<UserName />
 						</Route>
 						<Route exact path="/inicio">
-							<InicioView />
+							<Inicio />
 						</Route>
 						<Route exact path="/Sidebar">
 							<Sidebar />
-
-						
-
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
