@@ -1,9 +1,5 @@
 import React, { useContext } from "react";
-<<<<<<< HEAD
-//import { Context } from "../store/appContext";
-=======
 import { Context } from "../store/appContext";
->>>>>>> cee654a5651edc5dcc63399c6351d1b8126c860e
 import "../../styles/landingpage.scss";
 import { Caracteristicas1 } from "../component/landingpage/caracteristicas1";
 import { Caracteristicas2 } from "../component/landingpage/caracteristicas2";
