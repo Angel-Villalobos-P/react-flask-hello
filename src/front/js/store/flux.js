@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			timer: true,
 			message: null,
 			demo: [
 				{
@@ -16,6 +17,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			Temporizador: () => {
+				const store = getStore();
+				setStore({ timer: !store.timer });
+			},
+
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

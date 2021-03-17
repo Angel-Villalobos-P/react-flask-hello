@@ -32,7 +32,7 @@ import { Clientes } from "./pages/Clientes";
 import { Inicio } from "./pages/Inicio";
 import { Calendario } from "./pages/Calendario";
 import { Tareas } from "./pages/Tareas";
-
+import { Proyectos } from "./pages/Proyectos";
 
 //create your first component
 const Layout = () => {
@@ -87,7 +87,7 @@ const Layout = () => {
 							<VerifyMessage />
 						</Route>
 						<Route exact path="/proyectos">
-							<ProyectosView />
+							<Proyectos />
 						</Route>
 						<Route exact path="/tareas">
 							<Tareas />
@@ -99,13 +99,10 @@ const Layout = () => {
 							<UserName />
 						</Route>
 						<Route exact path="/inicio">
-							<InicioView />
+							<Inicio />
 						</Route>
 						<Route exact path="/Sidebar">
 							<Sidebar />
-
-						
-
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

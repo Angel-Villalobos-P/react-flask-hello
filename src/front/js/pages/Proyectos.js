@@ -1,13 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { SidebarItems } from "../component/SidebarItems";
-import ClienteCard from "../component/ClienteCard";
-import { Clientes_view } from "./Clientes_view";
-import { NewCostumer } from "../component/newCostumer";
-import { UserName } from "../component/userName";
 import { FormUsuario } from "../component/FormUsuario";
+import { Proyectos_view } from "./Proyectos_view";
 
-export const Clientes = () => {
+export const Proyectos = () => {
 	return (
 		<div className="page">
 			<div className="header">
@@ -91,8 +88,8 @@ export const Clientes = () => {
 						})}
 					</ul>
 				</nav>
-				<div className="content-inner">
-					<Clientes_view />
+				<div className="content-inner vw-100">
+					<Proyectos_view />
 				</div>
 			</div>
 		</div>

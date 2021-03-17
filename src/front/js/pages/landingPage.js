@@ -1,4 +1,4 @@
-//import React, { useContext } from "react";
+import React, { useContext } from "react";
 //import { Context } from "../store/appContext";
 import "../../styles/landingpage.scss";
 import { Caracteristicas1 } from "../component/landingpage/caracteristicas1";

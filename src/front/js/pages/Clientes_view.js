@@ -3,27 +3,6 @@ import ClienteCard from "../component/ClienteCard";
 import { NewCostumer } from "../component/newCostumer";
 
 export const Clientes_view = () => {
-	// const eliminar = (dato) => {
-	//     Swal.fire({
-	//         title: 'Are you sure?',
-	//         text: "You won't be able to revert this!",
-	//         icon: 'warning',
-	//         showCancelButton: true,
-	//         confirmButtonColor: '#3085d6',
-	//         cancelButtonColor: '#d33',
-	//         confirmButtonText: 'Yes, delete it!'
-	//     }).then((result) => {
-	//         if (result.isConfirmed) {
-	//             Swal.fire(
-	//                 'Deleted!',
-	//                 'Your file has been deleted.',
-	//                 'success'
-	//             );
-	//             // Eliminar de la base de datos
-	//         }
-	//     });
-	// };
-
 	return (
 		<>
 			<div className="view vh-100">

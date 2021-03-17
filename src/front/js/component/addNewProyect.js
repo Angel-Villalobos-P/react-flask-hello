@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 export const AddProyect = () => {
 	return (
 		<>
-			<button id="btn" type="button" className="btn btn-danger" data-toggle="modal" data-target="#exampleModal5">
+			{/* <button id="btn" type="button" className="btn btn-danger" data-toggle="modal" data-target="#exampleModal5">
 				Agregar proyecto
-			</button>
-			<div className="modal fade" id="exampleModal5" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			</button> */}
+			<div
+				className="modal fade"
+				id="form-nuevo-proyecto1"
+				aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
 				<div className="modal-dialog">
 					<div className="modal-content">
 						<div className="modal-header">

@@ -168,12 +168,12 @@ nav.side-navbar ul li li.active > a {
     font-size: 25px;
 }
 
-#btn-nuevo-cliente {
+#btn-nuevo-cliente, #btn-nuevo-proyecto {
     border: 0px;
     font-size: 17px;
 }
 
-#btn-nuevo-cliente:hover { 
+#btn-nuevo-cliente:hover, #btn-nuevo-proyecto:hover { 
     background: #796AEE;
     color: white; 
 } 
