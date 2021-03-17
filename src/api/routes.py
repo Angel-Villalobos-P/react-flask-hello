@@ -91,7 +91,7 @@ def update_profesional(id):
 #CRUD de Clientes
 
 #get solo un cliente
-@api.route('/cliente/<int:id>', methods=['GET']) 
+@api.route('/clientes/<int:id>', methods=['GET']) 
 def get_only_cliente(id):
     only_cliente = Cliente.query.filter_by(id=id).first()
     if not only_cliente:
@@ -110,7 +110,7 @@ def show_all_clientes():
 
 
 #add cliente
-@api.route('/cliente', methods=['POST'])
+@api.route('/clientes', methods=['POST'])
 def add_cliente():
     # recibir info del request
     request_body = request.get_json()
@@ -122,7 +122,7 @@ def add_cliente():
 
 
 #delete cliente
-@api.route('/cliente/<int:id>', methods=['DELETE'])
+@api.route('/clientes/<int:id>', methods=['DELETE'])
 def del_cliente(id):
     # recibir info del request
     cliente = Cliente.query.get(id)
@@ -134,7 +134,7 @@ def del_cliente(id):
 
 
 #Update cliente
-@api.route('/cliente/<int:id>', methods=['PUT'])
+@api.route('/clientes/<int:id>', methods=['PUT'])
 def update_cliente(id):
     body = request.get_json()
     cliente = Cliente.query.get(id)

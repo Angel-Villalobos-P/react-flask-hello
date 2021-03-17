@@ -12,7 +12,7 @@ import { ContactoView } from "./pages/contacto";
 import { PreciosView } from "./pages/precios";
 import { InicioView } from "./pages/inicioView";
 import injectContext from "./store/appContext";
-import { ProyectosView } from "./pages/proyectos";
+// import { ProyectosView } from "./pages/proyectos";
 //folder popUpsLandingPage
 import { Login } from "./component/popUpsLandingPage/login";
 import { SignUp } from "./component/popUpsLandingPage/signUp";
