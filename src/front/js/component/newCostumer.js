@@ -1,7 +1,41 @@
-import React from "react";
+import React, { useState, useEffect, useContext, Fragment } from "react";
+import { Context } from "../store/appContext";
 
 export const NewCostumer = () => {
-	//Acá se puede usar state global con las actions para agregar nuevos clientes
+	const [datos, setDatos] = useState({
+		cedula_cliente: "",
+		nombre_cliente: "",
+		correo_cliente: "",
+		telefono_cliente: ""
+	});
+
+	const { store, actions } = useContext(Context);
+
+	const handleChange = event => {
+		console.log(event.target.name);
+		console.log(event.target.value);
+		setDatos({
+			...datos,
+			[event.target.name]: event.target.value
+		});
+		console.log("cliente a enviar: ", datos);
+	};
+
+	const enviarDatos = event => {
+		event.preventDefault();
+		console.log(
+			"enviando datos..." +
+				datos.cedula_cliente +
+				" " +
+				datos.nombre_cliente +
+				" " +
+				datos.correo_cliente +
+				" " +
+				datos.telefono_cliente
+		);
+		console.log(datos);
+		actions.AddCliente(datos);
+	};
 
 	return (
 		<div>
@@ -22,45 +56,71 @@ export const NewCostumer = () => {
 				aria-hidden="true"
 				data-backdrop="false">
 				<div className="modal-dialog modal-dialog-centered">
-					<div className="modal-content">
-						<div className="modal-header d-flex align-items-center">
-							{/* <i className="fas fa-user userIcon" /> */}
-							<i className="fas fa-user-plus" />
-							<span />
-							<h4 className="modal-title" id="exampleModalLabel">
-								Nuevo Cliente
-							</h4>
-							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div className="modal-body newmodal">
-							<div className="form-group">
-								<label>Cedula</label>
-								<input type="email" placeholder="Cedula" className="form-control" />
+					<fragment>
+						<form className="modal-content" onSubmit={enviarDatos}>
+							<div className="modal-header d-flex align-items-center">
+								{/* <i className="fas fa-user userIcon" /> */}
+								<i className="fas fa-user-plus" />
+								<span />
+								<h4 className="modal-title" id="exampleModalLabel">
+									Nuevo Cliente
+								</h4>
+								<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
 							</div>
-							<div className="form-group">
-								<label>Nombre</label>
-								<input type="email" placeholder="Nombre" className="form-control" />
+							<div className="modal-body newmodal">
+								<div className="form-group">
+									<label>Cedula</label>
+									<input
+										type="number"
+										placeholder="Cedula"
+										className="form-control"
+										onChange={handleChange}
+										name="cedula_cliente"
+									/>
+								</div>
+								<div className="form-group">
+									<label>Nombre</label>
+									<input
+										type="text"
+										placeholder="Nombre"
+										className="form-control"
+										onChange={handleChange}
+										name="nombre_cliente"
+									/>
+								</div>
+								<div className="form-group">
+									<label>Correo</label>
+									<input
+										type="email"
+										placeholder="Correo"
+										className="form-control"
+										onChange={handleChange}
+										name="correo_cliente"
+									/>
+								</div>
+								<div className="form-group">
+									<label>Teléfono</label>
+									<input
+										type="text"
+										placeholder="Teléfono"
+										className="form-control"
+										onChange={handleChange}
+										name="telefono_cliente"
+									/>
+								</div>
 							</div>
-							<div className="form-group">
-								<label>correo</label>
-								<input type="email" placeholder="Correo" className="form-control" />
+							<div className="modal-footer">
+								<button type="button" className="btn btn-secondary" data-dismiss="modal">
+									Cancelar
+								</button>
+								<button type="submit" className="btn btn-primary">
+									Aceptar
+								</button>
 							</div>
-							<div className="form-group">
-								<label>Teléfono</label>
-								<input type="email" placeholder="Teléfono" className="form-control" />
-							</div>
-						</div>
-						<div className="modal-footer">
-							<button type="button" className="btn btn-secondary" data-dismiss="modal">
-								Cancelar
-							</button>
-							<button type="button" className="btn btn-primary">
-								Aceptar
-							</button>
-						</div>
-					</div>
+						</form>
+					</fragment>
 				</div>
 			</div>
 		</div>
