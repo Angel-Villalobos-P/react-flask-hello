@@ -30,7 +30,7 @@ const injectContext = PassedComponent => {
 			 **/
 			//state.actions.getMessage(); // <---- calling this function from the flux.js actions
 			state.actions.Temporizador();
-			state.actions.loadClientes("https://3001-ivory-louse-ahfxh0mk.ws-us03.gitpod.io/api/clientes");
+			state.actions.loadClientes("https://3001-moccasin-falcon-uqhn3gyc.ws-us03.gitpod.io/api/clientes");
 		}, []);
 		return (
 			<Context.Provider value={state}>
