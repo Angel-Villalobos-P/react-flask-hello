@@ -33,7 +33,7 @@ class Cliente(db.Model):
     cedula_cliente = db.Column(db.Integer, unique=True, nullable=False)
     nombre_cliente = db.Column(db.String(120), unique=False, nullable=False)
     correo_cliente = db.Column(db.String(120), unique=True, nullable=False)
-    estado_cliente = db.Column(db.Boolean(), unique=False, nullable=False)
+    telefono_cliente = db.Column(db.String(120), unique=False, nullable=False)
 
     def __repr__(self):
          return f"<cliente {self.id} - {self.nombre_cliente}>"
@@ -44,7 +44,7 @@ class Cliente(db.Model):
             "cedula_cliente": self.cedula_cliente,
             "nombre_cliente": self.nombre_cliente,
             "correo_cliente": self.correo_cliente,
-            "estado_cliente": self.estado_cliente,
+            "telefono_cliente": self.telefono_cliente,
         }
 
 class Proyecto(db.Model):
@@ -73,7 +73,6 @@ class Tarea(db.Model):
     __tablename__ = 'tarea'
     id = db.Column(db.Integer, primary_key=True)
     nombre_tarea = db.Column(db.String(120), unique=False, nullable=False)
-    nombre_cliente = db.Column(db.String(120), unique=False, nullable=False)
     fecha_entrega = db.Column(db.Date, unique=False, nullable=False)
     horas_totales = db.Column(db.Date, unique=False, nullable=False)
     estado_tarea = db.Column(db.Boolean(), unique=False, nullable=False)

@@ -39,7 +39,7 @@ export const Clientes_view = () => {
 				<header className="page-header">
 					<div className="container-fluid d-flex justify-content-between">
 						<h2 className="no-margin-bottom titulo-dashboard">Clientes</h2>
-						{process.env.BACKEND_URL}
+						<NewCostumer />
 						<button
 							id="btn-nuevo-cliente"
 							type="button"
@@ -89,9 +89,9 @@ export const Clientes_view = () => {
 														Editar
 													</a>
 													<a
-														onClick={() => eliminar(item)}
 														href="#"
-														className="dropdown-item">
+														className="dropdown-item"
+														onClick={() => actions.DeleteCliente(item)}>
 														<i className="far fa-trash-alt" />
 														Eliminar
 													</a>
