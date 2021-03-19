@@ -1,6 +1,7 @@
 import React from "react";
 import { TareaCard } from "../component/TareaCard";
 import "../../styles/TareaCard.scss";
+import { FormTarea } from "../component/FormTarea";
 
 export const Tareas_view = () => {
 	return (
@@ -16,29 +17,12 @@ export const Tareas_view = () => {
 							href="#"
 							className="btn btn-outline-dark"
 							data-toggle="modal"
-							data-target="#form-nuevo-cliente"
+							data-target="#form-nueva-tarea"
 							rel="nofollow">
 							+ Agregar Tarea
 						</button>
 					</div>
 				</header>
-				{/* <div className="container-fluid">
-					<div className="row">
-						<div className="col-auto">
-							<TareaCard />
-						</div>
-					</div>
-					<div className="row">
-						<div className="col-auto">
-							<TareaCard />
-						</div>
-					</div>
-					<div className="row">
-						<div className="col-auto">
-							<TareaCard />
-						</div>
-					</div>
-				</div> */}
 				<div className="container-fluid">
 					<div className="row d-block">
 						<TareaCard />
@@ -49,6 +33,7 @@ export const Tareas_view = () => {
 					<div className="row d-block">
 						<TareaCard />
 					</div>
+					<FormTarea />
 				</div>
 			</div>
 		</>

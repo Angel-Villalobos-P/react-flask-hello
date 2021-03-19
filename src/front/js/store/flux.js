@@ -12,8 +12,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				setStore({ timer: !store.timer });
 			},
-			loadClientes: url => {
-				fetch(url)
+			loadClientes: () => {
+				// fetch("https://3001-ivory-louse-ahfxh0mk.ws-us03.gitpod.io/api/clientes")
+				fetch(process.env.BACKEND_URL + "/api/clientes")
 					.then(response => response.json())
 					.then(response => {
 						setStore({ clientes: [...response] });

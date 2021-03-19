@@ -93,7 +93,7 @@ export const Inicio = () => {
 						})}
 					</ul>
 				</nav>
-				<div className="content-inner">
+				<div className="content-inner vw-100">
 					{/* <Inicio_view /> */}
 					<Inicio_view2 />
 				</div>
