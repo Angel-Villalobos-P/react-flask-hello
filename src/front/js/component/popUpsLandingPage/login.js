@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Recovery } from "./recovery";
 
 export const Login = () => {
 	return (
@@ -53,8 +51,7 @@ export const Login = () => {
 							<button type="button" className="btn btn-primary">
 								Iniciar
 							</button>
-							{/* <Link to="/recovery"> ¿Olvidó su contraseña? </Link> */}
-							{/* <Recovery /> */}
+						
 						</div>
 					</div>
 				</div>
