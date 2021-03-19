@@ -101,7 +101,7 @@ def get_only_cliente(id):
 
 
 #get todos los clientes
-@api.route('/cliente', methods=['GET'])
+@api.route('/clientes', methods=['GET'])
 def show_all_clientes():
     all_clientes = Cliente.query.all()
     all_clientes_serialized = list(map(lambda Cliente: Cliente.serialize(), all_clientes))

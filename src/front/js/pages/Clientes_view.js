@@ -4,31 +4,34 @@ import { Link } from "react-router-dom";
 import ClienteCard from "../component/ClienteCard";
 import { NewCostumer } from "../component/newCostumer";
 import { Context } from "../store/appContext";
+import Swal from "sweetalert2";
 
 export const Clientes_view = () => {
 	const { store, actions } = useContext(Context);
 
-	// const eliminar = (dato) => {
-	//     Swal.fire({
-	//         title: 'Are you sure?',
-	//         text: "You won't be able to revert this!",
-	//         icon: 'warning',
-	//         showCancelButton: true,
-	//         confirmButtonColor: '#3085d6',
-	//         cancelButtonColor: '#d33',
-	//         confirmButtonText: 'Yes, delete it!'
-	//     }).then((result) => {
-	//         if (result.isConfirmed) {
-	//             Swal.fire(
-	//                 'Deleted!',
-	//                 'Your file has been deleted.',
-	//                 'success'
-	//             );
-	//             // Eliminar de la base de datos
-	//         }
-	//     });
-	// };
-	console.log(store.clientes);
+	const eliminar = dato => {
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You won't be able to revert this!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Yes, delete it!"
+		}).then(result => {
+			if (result.isConfirmed) {
+				Swal.fire("Deleted!", "Your file has been deleted.", "success");
+				// Eliminar de la base de datos
+				console.log("eliminado: ", dato.id);
+			} else {
+				console.log("NO ELIMINADO");
+			}
+		});
+	};
+
+	const imprimir = cliente => {
+		console.log(cliente.id);
+	};
 
 	return (
 		<>
@@ -36,7 +39,7 @@ export const Clientes_view = () => {
 				<header className="page-header">
 					<div className="container-fluid d-flex justify-content-between">
 						<h2 className="no-margin-bottom titulo-dashboard">Clientes</h2>
-						{/* <NewCostumer /> */}
+						{process.env.BACKEND_URL}
 						<button
 							id="btn-nuevo-cliente"
 							type="button"
@@ -82,16 +85,13 @@ export const Clientes_view = () => {
 														data-toggle="modal"
 														data-target="#form-nuevo-cliente"
 														rel="nofollow">
-														{/* {" "} */}
 														<i className="far fa-edit" />
 														Editar
 													</a>
 													<a
+														onClick={() => eliminar(item)}
 														href="#"
-														className="dropdown-item"
-														onClick={() => eliminar("dato")}>
-														{/* {" "} */}
-														{/* <i className="fa fa-times" /> */}
+														className="dropdown-item">
 														<i className="far fa-trash-alt" />
 														Eliminar
 													</a>
@@ -104,40 +104,20 @@ export const Clientes_view = () => {
 													className="rounded float-left"
 													src="https://picsum.photos/100/100"
 												/>
-												{/* <img className="img-fluid rounded-circle float-left" src="https://picsum.photos/100/100" /> */}
 											</div>
 											<div className="col-8">
 												<div className="card-body text-primary">
-													{/* <h5 className="card-title">Primary card title</h5> */}
 													<p className="card-text">{item.correo_cliente}</p>
 													<p className="card-text">{item.cedula_cliente}</p>
 												</div>
 											</div>
 										</div>
-										<NewCostumer />
+										{/* <NewCostumer /> */}
 									</div>
 								);
 							})}
-
-						{/* <div className="col-auto">
-							<ClienteCard />
-						</div>
-						<div className="col-auto">
-							<ClienteCard />
-						</div>
-						<div className="col-auto ">
-							<ClienteCard />
-						</div>
-						<div className="col-auto ">
-							<ClienteCard />
-						</div>
-						<div className="col-auto ">
-							<ClienteCard />
-						</div>
-						<div className="col-auto ">
-							<ClienteCard />
-						</div> */}
 					</div>
+					<NewCostumer />
 				</div>
 			</div>
 		</>

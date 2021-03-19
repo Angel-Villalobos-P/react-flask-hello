@@ -44,7 +44,7 @@ class Cliente(db.Model):
             "cedula_cliente": self.cedula_cliente,
             "nombre_cliente": self.nombre_cliente,
             "correo_cliente": self.correo_cliente,
-            "correo_cliente": self.correo_cliente,
+            "estado_cliente": self.estado_cliente,
         }
 
 class Proyecto(db.Model):

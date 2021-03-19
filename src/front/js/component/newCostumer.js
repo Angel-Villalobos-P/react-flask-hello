@@ -1,20 +1,8 @@
 import React from "react";
 
 export const NewCostumer = () => {
-	//Acá se puede usar state global con las actions para agregar nuevos clientes
-
 	return (
 		<div>
-			{/* <button
-				id="btn-nuevo-cliente"
-				type="button"
-				className="btn btn-outline-dark"
-				data-toggle="modal"
-				data-target="#form-nuevo-cliente">
-				<i className="fas fa-plus" />
-				<span />
-				Agregar cliente
-			</button> */}
 			<div
 				className="modal fade"
 				id="form-nuevo-cliente"
@@ -24,7 +12,6 @@ export const NewCostumer = () => {
 				<div className="modal-dialog modal-dialog-centered">
 					<div className="modal-content">
 						<div className="modal-header d-flex align-items-center">
-							{/* <i className="fas fa-user userIcon" /> */}
 							<i className="fas fa-user-plus" />
 							<span />
 							<h4 className="modal-title" id="exampleModalLabel">

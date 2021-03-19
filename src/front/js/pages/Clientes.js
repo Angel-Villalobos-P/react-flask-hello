@@ -91,7 +91,7 @@ export const Clientes = () => {
 						})}
 					</ul>
 				</nav>
-				<div className="content-inner">
+				<div className="content-inner vw-100">
 					<Clientes_view />
 				</div>
 			</div>
