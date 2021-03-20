@@ -46,6 +46,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 				_store.clientes.push(cliente);
 				setStore({ clientes: _store.clientes });
+			},
+			UpdateCliente: cliente => {
+				fetch("https://3001-moccasin-falcon-uqhn3gyc.ws-us03.gitpod.io/api/clientes/" + cliente.id, {
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(cliente)
+				});
 			}
 		}
 	};

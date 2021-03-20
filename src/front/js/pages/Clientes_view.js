@@ -3,6 +3,7 @@ import "../../styles/ClienteCard.scss";
 import { Link } from "react-router-dom";
 import ClienteCard from "../component/ClienteCard";
 import { NewCostumer } from "../component/newCostumer";
+import { UpdateCustomer } from "../component/updateCustomer";
 import { Context } from "../store/appContext";
 import Swal from "sweetalert2";
 
