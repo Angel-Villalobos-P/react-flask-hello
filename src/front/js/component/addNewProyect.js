@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const AddProyect = () => {
+	const { store, actions } = useContext(Context);
+
 	return (
 		<>
 			{/* <button id="btn" type="button" className="btn btn-danger" data-toggle="modal" data-target="#exampleModal5">
@@ -50,9 +53,12 @@ export const AddProyect = () => {
 											</div>
 											<select className="custom-select" id="inputGroupSelect01">
 												<option selected>Eliga el cliente...</option>
-												<option value="1">Cliente 1</option>
-												<option value="2">Cliente 2</option>
-												<option value="3">Cliente 3</option>
+												{!!store.clientes &&
+													store.clientes.map((item, index) => {
+														<option key={index} value="index">
+															{item.nombre_cliente}
+														</option>;
+													})}
 											</select>
 										</div>
 									</div>

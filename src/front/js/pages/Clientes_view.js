@@ -113,7 +113,7 @@ export const Clientes_view = () => {
 												</div>
 											</div>
 										</div>
-									{/* <NewCostumer /> */}
+										{/* <NewCostumer /> */}
 									</div>
 								);
 							})}

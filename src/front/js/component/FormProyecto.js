@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Context } from "../store/appContext";
 
 export const FormProyecto = () => {
+	const { store, actions } = useContext(Context);
 	const [startDate, setStartDate] = useState(new Date());
 
 	return (
@@ -34,9 +36,12 @@ export const FormProyecto = () => {
 							<label>Cliente:</label>
 							<select className="custom-select" id="inputGroupSelect01">
 								<option selected>Eliga el cliente...</option>
-								<option value="1">Cliente 1</option>
-								<option value="2">Cliente 2</option>
-								<option value="3">Cliente 3</option>
+								{!!store.clientes &&
+									store.clientes.map((item, index) => {
+										console.log(index);
+										console.log(item.nombre_cliente);
+										return <option key={index} value={item.nombre_cliente} />;
+									})}
 							</select>
 						</div>
 						<div className="form-group">
