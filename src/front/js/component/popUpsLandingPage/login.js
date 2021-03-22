@@ -51,7 +51,6 @@ export const Login = () => {
 							<button type="button" className="btn btn-primary">
 								Iniciar
 							</button>
-						
 						</div>
 					</div>
 				</div>

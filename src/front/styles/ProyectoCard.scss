@@ -1,14 +1,20 @@
-#cliente-card {
-    //max-width: 20rem; 
+#proyecto-card {
+    width: 500px;
     max-height: 15rem;
     margin-top: 20px;
     border: 0px;
-    width: 350px;
-   // margin-left: 20px;
+    position: relative;
+    left: 40px;
+    margin-left: 10px;
+    border-radius: none;
 }
 
-img {
-    margin: 15px;
+#proyecto-card {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
 }
 
 .card-header {
@@ -23,24 +29,6 @@ img {
 }
 
 .card-text {
-    color: #212529;
-}
-
-// #proyecto-card{
-//     width: 500px;
-//     max-height: 15rem;
-//     position: relative;
-//     left: 40px;
-//     margin-top: 80px;
-//     margin-left: 10px;
-//     border-radius: none;
-// }
-
-#cliente-card {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
     color: #212529;
 }
 

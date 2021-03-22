@@ -1,4 +1,5 @@
 import React from "react";
+import { FormProyecto } from "./FormProyecto";
 
 export function ProyectCards() {
 	return (
@@ -7,11 +8,11 @@ export function ProyectCards() {
 				<h5>Nombre del proyecto</h5>
 			</div>
 			<div className="row d-flex justify-content-center ">
-				<div className="col-8">
+				<div className="col-6">
 					<div className="card-body text-primary">
 						<p>Neque per quisquam est qui dolorem ipsum quia dolor</p>
 
-						<div className="d-flex justify-content-center mr-3 ">
+						<div className="d-flex justify-content-center">
 							<div className="row ">
 								<i className="fas fa-clipboard-list mr-5 mt-4 proIcon" />
 								<i className="far fa-calendar-alt mr-5 mt-4 proIcon" />
@@ -22,6 +23,7 @@ export function ProyectCards() {
 					</div>
 				</div>
 			</div>
+			<FormProyecto />
 		</div>
 	);
 }

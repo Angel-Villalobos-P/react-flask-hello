@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, Fragment } from "react";
 import { Context } from "../store/appContext";
 
-export const NewCostumer = () => {
+export const UpdateCustomer = () => {
 	const [datos, setDatos] = useState({
 		cedula_cliente: "",
 		nombre_cliente: "",
@@ -18,7 +18,7 @@ export const NewCostumer = () => {
 			...datos,
 			[event.target.name]: event.target.value
 		});
-		console.log("cliente a enviar: ", datos);
+		console.log("cliente a actualizar: ", datos);
 	};
 
 	const enviarDatos = event => {
@@ -34,7 +34,7 @@ export const NewCostumer = () => {
 				datos.telefono_cliente
 		);
 		console.log(datos);
-		actions.AddCliente(datos);
+		actions.UpdateCliente(datos);
 	};
 
 	return (
@@ -51,7 +51,7 @@ export const NewCostumer = () => {
 			</button> */}
 			<div
 				className="modal fade"
-				id="form-nuevo-cliente"
+				id="form-actualizar-cliente"
 				aria-labelledby="exampleModalLabel"
 				aria-hidden="true"
 				data-backdrop="false">
@@ -116,7 +116,7 @@ export const NewCostumer = () => {
 									Cancelar
 								</button>
 								<button type="submit" className="btn btn-primary">
-									Aceptar
+									Actualizar
 								</button>
 							</div>
 						</form>

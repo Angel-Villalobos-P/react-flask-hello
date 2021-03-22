@@ -3,6 +3,7 @@ import "../../styles/ClienteCard.scss";
 import { Link } from "react-router-dom";
 import ClienteCard from "../component/ClienteCard";
 import { NewCostumer } from "../component/newCostumer";
+import { UpdateCustomer } from "../component/updateCustomer";
 import { Context } from "../store/appContext";
 
 export const Clientes_view = () => {
@@ -36,7 +37,7 @@ export const Clientes_view = () => {
 				<header className="page-header">
 					<div className="container-fluid d-flex justify-content-between">
 						<h2 className="no-margin-bottom titulo-dashboard">Clientes</h2>
-						{/* <NewCostumer /> */}
+						<NewCostumer />
 						<button
 							id="btn-nuevo-cliente"
 							type="button"
@@ -89,7 +90,7 @@ export const Clientes_view = () => {
 													<a
 														href="#"
 														className="dropdown-item"
-														onClick={() => eliminar("dato")}>
+														onClick={() => actions.DeleteCliente(item)}>
 														{/* {" "} */}
 														{/* <i className="fa fa-times" /> */}
 														<i className="far fa-trash-alt" />
@@ -114,7 +115,7 @@ export const Clientes_view = () => {
 												</div>
 											</div>
 										</div>
-										<NewCostumer />
+										<newCostumer />
 									</div>
 								);
 							})}

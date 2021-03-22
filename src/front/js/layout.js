@@ -12,7 +12,7 @@ import { ContactoView } from "./pages/contacto";
 import { PreciosView } from "./pages/precios";
 import { InicioView } from "./pages/inicioView";
 import injectContext from "./store/appContext";
-import { ProyectosView } from "./pages/proyectos";
+// import { ProyectosView } from "./pages/proyectos";
 //folder popUpsLandingPage
 import { Login } from "./component/popUpsLandingPage/login";
 import { SignUp } from "./component/popUpsLandingPage/signUp";
@@ -32,6 +32,7 @@ import { Clientes } from "./pages/Clientes";
 import { Inicio } from "./pages/Inicio";
 import { Calendario } from "./pages/Calendario";
 import { Tareas } from "./pages/Tareas";
+import { Proyectos } from "./pages/Proyectos";
 
 //create your first component
 const Layout = () => {
@@ -86,7 +87,7 @@ const Layout = () => {
 							<VerifyMessage />
 						</Route>
 						<Route exact path="/proyectos">
-							<ProyectosView />
+							<Proyectos />
 						</Route>
 						<Route exact path="/tareas">
 							<Tareas />

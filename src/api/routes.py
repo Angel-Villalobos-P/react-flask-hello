@@ -86,7 +86,7 @@ def update_profesional(id):
     return jsonify("All good, updated!"), 200
 
 
-###################
+#########################
 
 #CRUD de Clientes
 
@@ -115,10 +115,11 @@ def add_cliente():
     # recibir info del request
     request_body = request.get_json()
     print(request_body)
-    new_cliente = Cliente(cedula_cliente=request_body["cedula_cliente"], nombre_cliente=request_body["nombre_cliente"], estado_cliente=request_body["estado_cliente"])
+    new_cliente = Cliente(cedula_cliente=request_body["cedula_cliente"], nombre_cliente=request_body["nombre_cliente"],correo_cliente=request_body["correo_cliente"], telefono_cliente=request_body["telefono_cliente"])
     db.session.add(new_cliente)
     db.session.commit()
     return jsonify("All good, added"), 200
+    # return jsonify("All good, added"), 200
 
 
 #delete cliente
@@ -147,9 +148,9 @@ def update_cliente(id):
     if "cedula_cliente" in body:
         Cliente.cedula_cliente = body["cedula_cliente"]
     if "nombre_cliente" in body:
-        Cliente.new_cliente= body["nombre_cliente"]
-    if "estado_cliente" in body:
-        Cliente.estado_cliente = body["estado_cliente"]
+        Cliente.nombre_cliente= body["nombre_cliente"]
+    if "telefono_cliente" in body:
+        Cliente.telefono_cliente = body["telefono_cliente"]
     db.session.commit()
     return jsonify("All good, updated!"), 200
 
@@ -170,7 +171,7 @@ def get_only_proyecto(id):
 
 
 #get todos los proyectos
-@api.route('/proyectos', methods=['GET'])
+@api.route('/proyecto', methods=['GET'])
 def show_all_proyetos():
     all_proyectos = Proyecto.query.all()
     all_proyectos_serialized = list(map(lambda Proyectos: Proyectos.serialize(), all_proyectos))
@@ -238,7 +239,7 @@ def get_only_tarea(id):
 
 
 #get todas las tareas
-@api.route('/tareas', methods=['GET'])
+@api.route('/tarea', methods=['GET'])
 def show_all_tareas():
     all_tareas = Tarea.query.all()
     all_tareas_serialized = list(map(lambda Tareas: Tareas.serialize(), all_tareas))
