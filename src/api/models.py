@@ -11,7 +11,6 @@ class Profesional(db.Model):
     cedula_profesional = db.Column(db.Integer, unique=True, nullable=False)
     nombre_profesional = db.Column(db.String(120), unique=False, nullable=False)
     correo_profesional = db.Column(db.String(120), unique=True, nullable=False)
-    estado_profesional = db.Column(db.Boolean(), unique=False, nullable=False)
 
     def __repr__(self):
          return f"<profesional {self.id} - {self.nombre_profesional}>"
@@ -23,8 +22,7 @@ class Profesional(db.Model):
             "profesion": self.profesion,
             "cedula_profesional": self.cedula_profesional,
             "nombre_profesional": self.nombre_profesional,
-            "correo_profesional": self.correo_profesional,
-            "estado_profesional": self.estado_profesional
+            "correo_profesional": self.correo_profesional
         }
     
 class Cliente(db.Model):
@@ -51,11 +49,11 @@ class Proyecto(db.Model):
     __tablename__ = 'proyecto'
     id = db.Column(db.Integer, primary_key=True)
     id_cliente = db.Column(db.Integer, db.ForeignKey('cliente.id'))
-    id_profesional = db.Column(db.Integer, db.ForeignKey('profesional.id'))
+    # id_profesional = db.Column(db.Integer, db.ForeignKey('profesional.id'))
     nombre_proyecto = db.Column(db.String(120), unique=False, nullable=False)
+    descripcion_proyecto = db.Column(db.String(200), unique=False, nullable=False)
     fecha_entrega = db.Column(db.Date, unique=False, nullable=False)
-    horas_totales = db.Column(db.Date, unique=False, nullable=False)
-    estado = db.Column(db.Boolean(), unique=False, nullable=False)
+
 
     def __repr__(self):
          return f"<proyecto {self.id} - {self.nombre_proyecto}>"
@@ -64,9 +62,8 @@ class Proyecto(db.Model):
         return {
             "id": self.id,
             "nombre_proyecto": self.nombre_proyecto,
-            "fecha_entrega": self.fecha_entrega,
-            "horas_totales": self.horas_totales,
-            "estado": self.estado,
+            "descripcion_proyecto": self.descripcion_proyecto,
+            "fecha_entrega": self.fecha_entrega
         }
 
 class Tarea(db.Model):
@@ -75,7 +72,6 @@ class Tarea(db.Model):
     nombre_tarea = db.Column(db.String(120), unique=False, nullable=False)
     fecha_entrega = db.Column(db.Date, unique=False, nullable=False)
     horas_totales = db.Column(db.Date, unique=False, nullable=False)
-    estado_tarea = db.Column(db.Boolean(), unique=False, nullable=False)
 
     def __repr__(self):
          return f"<tarea {self.id} - {self.nombre_tarea}>"
@@ -86,8 +82,7 @@ class Tarea(db.Model):
             "nombre_tarea": self.nombre_tarea,
             "nombre_cliente": self.nombre_cliente,
             "fecha_entrega": self.fecha_entrega,
-            "horas_totales": self.horas_totales,
-            "estado_tarea": self.estado_tarea,
+            "horas_totales": self.horas_totales
         }
 
 class TareaProyecto(db.Model):

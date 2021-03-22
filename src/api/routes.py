@@ -184,7 +184,7 @@ def add_proyecto():
     # recibir info del request
     request_body = request.get_json()
     print(request_body)
-    new_proyecto = Proyecto(nombre_proyecto=request_body["nombre_proyecto"], fecha_entrega=request_body["fecha_entrega"], horas_totales=request_body["horas_totales"], estado=request_body["estado"])
+    new_proyecto = Proyecto(id_cliente=request_body["id_cliente"], nombre_proyecto=request_body["nombre_proyecto"], descripcion_proyecto=request_body["descripcion_proyecto"],fecha_entrega=request_body["fecha_entrega"])
     db.session.add(new_proyecto)
     db.session.commit()
     return jsonify("All good, added"), 200
