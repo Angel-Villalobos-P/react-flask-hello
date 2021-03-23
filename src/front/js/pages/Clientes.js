@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { SidebarItems } from "../component/SidebarItems";
 import ClienteCard from "../component/ClienteCard";
 import { Clientes_view } from "./Clientes_view";
-import { NewCostumer } from "../component/newCostumer";
 import { UserName } from "../component/userName";
 import { FormUsuario } from "../component/FormUsuario";
 
@@ -91,7 +90,7 @@ export const Clientes = () => {
 						})}
 					</ul>
 				</nav>
-				<div className="content-inner">
+				<div className="content-inner vw-100">
 					<Clientes_view />
 				</div>
 			</div>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { SidebarItems } from "../component/SidebarItems";
 import ClienteCard from "../component/ClienteCard";
 import { Clientes_view } from "./Clientes_view";
-import { NewCostumer } from "../component/newCostumer";
 import { UserName } from "../component/userName";
 import { FormUsuario } from "../component/FormUsuario";
 import { Inicio_view } from "../component/Inicio_view";
@@ -25,7 +24,7 @@ export const Inicio = () => {
 								</a>
 							</div>
 							<ul className="nav-menu1 list-unstyled d-flex flex-md-row align-items-md-center user-name-ul">
-								<li>
+								<div>
 									<div className="user-text-name d-flex align-items-center">
 										<li className="nav-item">
 											<img
@@ -70,7 +69,7 @@ export const Inicio = () => {
 											</ul>
 										</li>
 									</div>
-								</li>
+								</div>
 							</ul>
 						</div>
 					</div>
@@ -93,7 +92,7 @@ export const Inicio = () => {
 						})}
 					</ul>
 				</nav>
-				<div className="content-inner">
+				<div className="content-inner vw-100">
 					{/* <Inicio_view /> */}
 					<Inicio_view2 />
 				</div>

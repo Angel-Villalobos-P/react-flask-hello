@@ -22,8 +22,11 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			state.actions.loadClientes("https://3001-magenta-kangaroo-ckz5y6of.ws-us03.gitpod.io/api/clientes");
 			state.actions.Temporizador();
+			state.actions.loadClientes();
+			state.actions.loadProyectos();
+			state.actions.loadTareas();
+
 		}, []);
 		return (
 			<Context.Provider value={state}>
