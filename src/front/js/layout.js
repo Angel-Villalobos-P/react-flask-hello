@@ -20,11 +20,9 @@ import { Recovery } from "./component/popUpsLandingPage/recovery";
 import { VerifyMessage } from "./component/popUpsLandingPage/verifyMessage";
 
 // folder component
-import { NewCostumer } from "./component/newCostumer";
 //import { Navbar } from "./component/navbar";
 //import { Footer } from "./component/footer";
 import Sidebar from "./component/Sidebar";
-import ClientesView from "./pages/ClientesView";
 import { AddProyect } from "./component/addNewProyect";
 import { UserName } from "./component/userName";
 import { LandingPage } from "./pages/landingPage";
@@ -70,9 +68,6 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
-						</Route>
-						<Route exact path="/newCostumer">
-							<NewCostumer />
 						</Route>
 						<Route exact path="/login">
 							<Login />

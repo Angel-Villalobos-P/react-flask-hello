@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/ClienteCard.scss";
 import { Link } from "react-router-dom";
-import { NewCostumer } from "./newCostumer";
+import { FormCliente } from "./FormCliente";
 import Swal from "sweetalert2";
 
 const ClienteCard = () => {
@@ -73,7 +73,7 @@ const ClienteCard = () => {
 					</div>
 				</div>
 			</div>
-			<NewCostumer />
+			<FormCliente />
 		</div>
 	);
 };

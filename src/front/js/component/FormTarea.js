@@ -1,10 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Context } from "../store/appContext";
+import DatePicker from "react-datepicker";
 
 export const FormTarea = () => {
 	const [startDate, setStartDate] = useState(new Date());
+	const { store, actions } = useContext(Context);
+
+	//para el formato de las fechas
+	var options = {
+		weekday: "long",
+		year: "numeric",
+		month: "long",
+		day: "numeric"
+	};
+
+	const [tarea, setTarea] = useState({
+		id_proyecto: 0,
+		nombre_tarea: "",
+		fecha_entrega: startDate.toLocaleDateString(options),
+		horas_totales: ""
+	});
+
+	const agregarTarea = () => {
+		actions.AddTarea(tarea);
+	};
+
+	const handleChange = event => {
+		setTarea({
+			...tarea,
+			[event.target.name]: event.target.value
+		});
+		console.log(tarea);
+	};
 
 	return (
 		<div
@@ -28,34 +57,60 @@ export const FormTarea = () => {
 					<div className="modal-body newmodal">
 						<div className="form-group">
 							<label>Nombre de la tarea:</label>
-							<input type="email" placeholder="Nombre de la tarea" className="form-control" />
+							<input
+								type="text"
+								placeholder="Nombre de la tarea"
+								className="form-control"
+								name="nombre_tarea"
+								onChange={handleChange}
+							/>
 						</div>
 						<div className="form-group">
 							<label>Proyecto:</label>
-							<select className="custom-select" id="inputGroupSelect01">
-								<option selected>Eliga el proyecto...</option>
-								<option value="1">Proyecto 1</option>
-								<option value="2">Proyecto 2</option>
-								<option value="3">Proyecto 3</option>
+							<select
+								className="custom-select"
+								id="inputGroupSelect01"
+								onChange={handleChange}
+								name="id_proyecto">
+								<option selected>Elija el proyecto...</option>
+								{!!store.proyectos &&
+									store.proyectos.map((proyecto, index) => {
+										return (
+											<option key={index} value={proyecto.id}>
+												{proyecto.nombre_proyecto}
+											</option>
+										);
+									})}
 							</select>
 						</div>
-						{/* <div className="form-group">
-							<label>Total horas:</label>
-							<input className="form-control" aria-label="With textarea" />
-						</div> */}
 						<div className="form-group">
 							<div className="row">
 								<div className="col-6">
 									<label>Total horas:</label>
-									<input className="form-control" aria-label="With textarea" />
+									<input
+										className="form-control"
+										aria-label="With textarea"
+										onChange={handleChange}
+										name="horas_totales"
+									/>
 								</div>
 								<div className="col-6">
 									<label>Fecha de entrega:</label>
 									<br />
 									<DatePicker
 										selected={startDate}
-										onChange={date => setStartDate(date)}
-										dateFormat={"dd MMMM"}
+										onChange={date => {
+											setStartDate(date);
+											setTarea({
+												...tarea,
+												fecha_entrega: date.toLocaleDateString(options)
+											});
+											// console.log(date.toLocaleDateString(options));
+											// console.log(date.getDate());
+											// console.log(date.getMonth() + 1);
+											// console.log(date.toLocaleDateString(options).split("/"));
+										}}
+										dateFormat={"dd MMMM yyyy"}
 									/>
 								</div>
 							</div>
@@ -65,7 +120,11 @@ export const FormTarea = () => {
 						<button type="button" className="btn btn-secondary" data-dismiss="modal">
 							Cancelar
 						</button>
-						<button type="button" className="btn btn-primary">
+						<button
+							type="button"
+							className="btn btn-primary"
+							onClick={() => agregarTarea()}
+							data-dismiss="modal">
 							Aceptar
 						</button>
 					</div>
