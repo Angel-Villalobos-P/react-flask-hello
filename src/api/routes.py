@@ -4,6 +4,9 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, Profesional, Cliente, Proyecto, Tarea
 from api.utils import generate_sitemap, APIException
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_jwt_extended import create_access_token
+import datetime
 
 api = Blueprint('api', __name__)
 
@@ -18,6 +21,31 @@ def handle_hello():
     return jsonify(response_body), 200
 
 #######################
+@api.route('/login', methods=['POST'])
+def login():
+    email = request.json.get('email', None)
+    password = request.json.get('password', None)
+
+    if not email:
+        return jsonify({"msg": "El email es requerido"}), 404
+    if not password:
+        return jsonify({"msg": "Password es requerido"}), 404
+
+    found_profesional = Profesional.query.filter_by(correo_profesional=email).first()
+
+    if not found_profesional:
+        return jsonify({"msg": "El email no existe o password incorrecta"}), 404
+    if not check_password_hash(found_profesional.password, password):
+        return jsonify({"msg": "El email no existe o password incorrecta"}), 404
+    expires = datetime.timedelta(days=1)
+    access_token = create_access_token(identity=found_profesional.correo_profesional, expires_delta=expires)
+
+    data = {
+        "token": access_token,
+        "successful": True
+    }
+    return jsonify(data), 200
+
 
 # CRUD PROFESIONAL
 #get solo profesional
@@ -39,13 +67,41 @@ def show_all_profesionals():
 #add profesional
 @api.route('/profesional', methods=['POST'])
 def add_profesional():
-    # recibir info del request
-    request_body = request.get_json()
-    print(request_body)
-    new_profesional = Profesional( username=request_body["username"], password=request_body["password"], profesion=request_body["profesion"], cedula_profesional=request_body["cedula_profesional"], nombre_profesional=request_body["nombre_profesional"], correo_profesional=request_body["correo_profesional"])
-    db.session.add(new_profesional)
-    db.session.commit()
-    return jsonify("All good, added"), 200
+   if request.method == "POST":
+      nombre_de_usuario = request.json.get("nombreDeUsuario", None)
+      password = request.json.get("password", None)
+      profesion = request.json.get("profesion", None)
+      cedula_profesional = request.json.get("numerodecedula", None)
+      nombre_profesional = request.json.get("nombreDeProfesional", None)
+      correo_profesional = request.json.get("correodeltrabajador", None)
+
+      if not nombre_de_usuario:
+         return jsonify({"msg": "El nombre de usuario es requerido"}), 404
+      if not password:
+         return jsonify({"msg": "Password es requerido"}), 404
+      if not profesion:
+         return jsonify({"msg": "la profesion es requerida"}), 404
+      if not cedula_profesional :
+         return jsonify({"msg": "La cedula del profesional es requerida"}), 404
+      if not nombre_profesional :
+         return jsonify({"msg": "El nombre del profesional es requerido"}), 404
+      if not correo_profesional :
+         return jsonify({"msg": "El correo del profesional es requerido"}), 404
+
+
+      new_profesional = Profesional(nombre_de_usuario=nombre_de_usuario,
+      password=generate_password_hash(password),
+      profesion=profesion,
+      cedula_profesional=cedula_profesional,
+      nombre_profesional=nombre_profesional, 
+      correo_profesional=correo_profesional)
+
+      db.session.add(new_profesional)
+      db.session.commit()
+
+      return jsonify("All good, added"),200
+
+
 
 #delete Profesional
 @api.route('/profesional/<int:id>', methods=['DELETE'])

@@ -22,13 +22,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			ClientesInfo: theid => {
-				fetch("https://3001-moccasin-falcon-uqhn3gyc.ws-us03.gitpod.io/api/clientes" + theid)
+				fetch("https://3001-magenta-kangaroo-ckz5y6of.ws-us03.gitpod.io/api/clientes/" + theid)
 					.then(response => response.json())
 					.then(response => setStore({ clientesDetails: response.result }));
 			},
 			DeleteCliente: cliente => {
 				const _store = getStore();
 				fetch(process.env.BACKEND_URL + "/api/clientes/" + cliente.id, {
+        }
+              }
 					method: "DELETE",
 					headers: {
 						"Content-Type": "application/json"
