@@ -31,6 +31,8 @@ const injectContext = PassedComponent => {
 			//state.actions.getMessage(); // <---- calling this function from the flux.js actions
 			state.actions.Temporizador();
 			state.actions.loadClientes();
+			state.actions.loadProyectos();
+			state.actions.loadTareas();
 		}, []);
 		return (
 			<Context.Provider value={state}>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, Fragment } from "react";
 import { Context } from "../store/appContext";
 
-export const NewCostumer = () => {
+export const FormCliente = () => {
 	const [datos, setDatos] = useState({
 		cedula_cliente: "",
 		nombre_cliente: "",
@@ -12,52 +12,51 @@ export const NewCostumer = () => {
 	const { store, actions } = useContext(Context);
 
 	const handleChange = event => {
-		console.log(event.target.name);
-		console.log(event.target.value);
+		// console.log(event.target.name);
+		// console.log(event.target.value);
 		setDatos({
 			...datos,
 			[event.target.name]: event.target.value
 		});
-		console.log("cliente a enviar: ", datos);
+		// console.log("cliente a enviar: ", datos);
 	};
 
 	const enviarDatos = event => {
 		event.preventDefault();
-		console.log(
-			"enviando datos..." +
-				datos.cedula_cliente +
-				" " +
-				datos.nombre_cliente +
-				" " +
-				datos.correo_cliente +
-				" " +
-				datos.telefono_cliente
-		);
-		console.log(datos);
 		actions.AddCliente(datos);
+	};
+	const _enviarDatos = () => {
+		event.preventDefault();
+		actions.AddCliente(datos);
+	};
+
+	const getInfoClienteApi = e => {
+		const cliente = datos;
+		if (e.key === "Enter") {
+			fetch("https://apis.gometa.org/cedulas/" + datos.cedula_cliente)
+				.then(response => response.json())
+				.then(response => {
+					console.log(response);
+					console.log("Nombre completo: ", response.results[0].fullname);
+					cliente.nombre_cliente = response.results[0].fullname;
+					console.log("cliente local ", cliente);
+					setDatos(cliente);
+					console.log("cliente state ", datos);
+				});
+		}
 	};
 
 	return (
 		<div>
-			{/* <button
-				id="btn-nuevo-cliente"
-				type="button"
-				className="btn btn-outline-dark"
-				data-toggle="modal"
-				data-target="#form-nuevo-cliente">
-				<i className="fas fa-plus" />
-				<span />
-				Agregar cliente
-			</button> */}
 			<div
-				className="modal fade"
 				id="form-nuevo-cliente"
+				className="modal fade"
 				aria-labelledby="exampleModalLabel"
 				aria-hidden="true"
 				data-backdrop="false">
 				<div className="modal-dialog modal-dialog-centered">
-					<fragment>
-						<form className="modal-content" onSubmit={enviarDatos}>
+					<Fragment>
+						<form className="modal-content">
 							<div className="modal-header d-flex align-items-center">
 								{/* <i className="fas fa-user userIcon" /> */}
 								<i className="fas fa-user-plus" />
@@ -65,7 +64,7 @@ export const NewCostumer = () => {
 								<h4 className="modal-title" id="exampleModalLabel">
 									Nuevo Cliente
 								</h4>
-								<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+								<button type="button" className="close" aria-label="Close" data-dismiss="modal">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
@@ -78,6 +77,7 @@ export const NewCostumer = () => {
 										className="form-control"
 										onChange={handleChange}
 										name="cedula_cliente"
+										// onKeyPress={getInfoClienteApi}
 									/>
 								</div>
 								<div className="form-group">
@@ -88,6 +88,7 @@ export const NewCostumer = () => {
 										className="form-control"
 										onChange={handleChange}
 										name="nombre_cliente"
+										value={datos.nombre_cliente}
 									/>
 								</div>
 								<div className="form-group">
@@ -115,12 +116,12 @@ export const NewCostumer = () => {
 								<button type="button" className="btn btn-secondary" data-dismiss="modal">
 									Cancelar
 								</button>
-								<button type="submit" className="btn btn-primary">
+								<button className="btn btn-primary" onClick={() => _enviarDatos()} data-dismiss="modal">
 									Aceptar
 								</button>
 							</div>
 						</form>
-					</fragment>
+					</Fragment>
 				</div>
 			</div>
 		</div>

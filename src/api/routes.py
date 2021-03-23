@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, Profesional, Cliente, Proyecto, Tarea, TareaProyecto
+from api.models import db, Profesional, Cliente, Proyecto, Tarea
 from api.utils import generate_sitemap, APIException
 
 api = Blueprint('api', __name__)
@@ -42,7 +42,7 @@ def add_profesional():
     # recibir info del request
     request_body = request.get_json()
     print(request_body)
-    new_profesional = Profesional( username=request_body["username"], password=request_body["password"], profesion=request_body["profesion"], cedula_profesional=request_body["cedula_profesional"], nombre_profesional=request_body["nombre_profesional"], correo_profesional=request_body["correo_profesional"], estado_profesional=request_body["estado_profesional"])
+    new_profesional = Profesional( username=request_body["username"], password=request_body["password"], profesion=request_body["profesion"], cedula_profesional=request_body["cedula_profesional"], nombre_profesional=request_body["nombre_profesional"], correo_profesional=request_body["correo_profesional"])
     db.session.add(new_profesional)
     db.session.commit()
     return jsonify("All good, added"), 200
@@ -144,13 +144,13 @@ def update_cliente(id):
     if body is None:
         raise APIException('Wrong data', status_code=404)
     if "id" in body:
-        Cliente.id = body["id"]
+        cliente.id = body["id"]
     if "cedula_cliente" in body:
-        Cliente.cedula_cliente = body["cedula_cliente"]
+        cliente.cedula_cliente = body["cedula_cliente"]
     if "nombre_cliente" in body:
-        Cliente.nombre_cliente= body["nombre_cliente"]
+        cliente.nombre_cliente= body["nombre_cliente"]
     if "telefono_cliente" in body:
-        Cliente.telefono_cliente = body["telefono_cliente"]
+        cliente.telefono_cliente = body["telefono_cliente"]
     db.session.commit()
     return jsonify("All good, updated!"), 200
 
@@ -161,7 +161,7 @@ def update_cliente(id):
 #CRUD de Proyectos
 
 #get solo un proyecto
-@api.route('/proyecto/<int:id>', methods=['GET']) 
+@api.route('/proyectos/<int:id>', methods=['GET']) 
 def get_only_proyecto(id):
     only_proyecto = Proyecto.query.filter_by(id=id).first()
     if not only_proyecto:
@@ -171,7 +171,7 @@ def get_only_proyecto(id):
 
 
 #get todos los proyectos
-@api.route('/proyecto', methods=['GET'])
+@api.route('/proyectos', methods=['GET'])
 def show_all_proyetos():
     all_proyectos = Proyecto.query.all()
     all_proyectos_serialized = list(map(lambda Proyectos: Proyectos.serialize(), all_proyectos))
@@ -179,19 +179,20 @@ def show_all_proyetos():
 
 
 #add proyecto
-@api.route('/proyecto', methods=['POST'])
+@api.route('/proyectos', methods=['POST'])
 def add_proyecto():
     # recibir info del request
     request_body = request.get_json()
     print(request_body)
-    new_proyecto = Proyecto(nombre_proyecto=request_body["nombre_proyecto"], fecha_entrega=request_body["fecha_entrega"], horas_totales=request_body["horas_totales"], estado=request_body["estado"])
+    new_proyecto = Proyecto(id_cliente=request_body["id_cliente"], nombre_proyecto=request_body["nombre_proyecto"], descripcion_proyecto=request_body["descripcion_proyecto"],
+     fecha_entrega=request_body["fecha_entrega"], horas_totales=int(request_body["horas_totales"]))
     db.session.add(new_proyecto)
     db.session.commit()
     return jsonify("All good, added"), 200
 
 
 #delete proyecto
-@api.route('/proyecto/<int:id>', methods=['DELETE'])
+@api.route('/proyectos/<int:id>', methods=['DELETE'])
 def del_proyecto(id):
     # recibir info del request
     proyecto = Proyecto.query.get(id)
@@ -203,7 +204,7 @@ def del_proyecto(id):
 
 
 #Update proyecto
-@api.route('/proyecto/<int:id>', methods=['PUT'])
+@api.route('/proyectos/<int:id>', methods=['PUT'])
 def update_proyecto(id):
     body = request.get_json()
     proyecto = Proyecto.query.get(id)
@@ -212,13 +213,12 @@ def update_proyecto(id):
     if body is None:
         raise APIException('Wrong data', status_code=404)
     if "nombre_proyecto" in body:
-       Proyecto.nombre_proyecto = body["nombre_proyecto"]
+       proyecto.nombre_proyecto = body["nombre_proyecto"]
     if "fecha_entrega" in body:
-       Proyecto.fecha_entrega = body["fecha_entrega"]
+       proyecto.fecha_entrega = body["fecha_entrega"]
     if "horas_totales" in body:
-        Proyecto.horas_totales= body["horas_totales"]
-    if "estado" in body:
-        Proyecto.estado= body["estado"]
+       proyecto.horas_totales= body["horas_totales"]
+
     db.session.commit()
     return jsonify("All good, updated!"), 200
 
@@ -229,7 +229,7 @@ def update_proyecto(id):
 #CRUD de Tareas
 
 #get solo una tarea
-@api.route('/tarea/<int:id>', methods=['GET']) 
+@api.route('/tareas/<int:id>', methods=['GET']) 
 def get_only_tarea(id):
     only_tarea = Tarea.query.filter_by(id=id).first()
     if not only_tarea:
@@ -239,7 +239,7 @@ def get_only_tarea(id):
 
 
 #get todas las tareas
-@api.route('/tarea', methods=['GET'])
+@api.route('/tareas', methods=['GET'])
 def show_all_tareas():
     all_tareas = Tarea.query.all()
     all_tareas_serialized = list(map(lambda Tareas: Tareas.serialize(), all_tareas))
@@ -248,19 +248,19 @@ def show_all_tareas():
 
 
 #add tarea
-@api.route('/tarea', methods=['POST'])
+@api.route('/tareas', methods=['POST'])
 def add_tarea():
     # recibir info del request
     request_body = request.get_json()
     print(request_body)
-    new_tarea = Tarea(nombre_tarea=request_body["nombre_tarea"], fecha_entrega=request_body["fecha_entrega"], horas_totales=request_body["horas_totales"], estado=request_body["estado"])
+    new_tarea = Tarea(id_proyecto=request_body["id_proyecto"], nombre_tarea=request_body["nombre_tarea"], fecha_entrega=request_body["fecha_entrega"], horas_totales=request_body["horas_totales"])
     db.session.add(new_tarea)
     db.session.commit()
     return jsonify("All good, added"), 200
 
 
 #delete tarea
-@api.route('/tarea/<int:id>', methods=['DELETE'])
+@api.route('/tareas/<int:id>', methods=['DELETE'])
 def del_tarea(id):
     # recibir info del request
     tarea = Tarea.query.get(id)
@@ -272,7 +272,7 @@ def del_tarea(id):
 
 
 #Update tarea
-@api.route('/tarea/<int:id>', methods=['PUT'])
+@api.route('/tareas/<int:id>', methods=['PUT'])
 def update_tarea(id):
     body = request.get_json()
     tarea =Tarea.query.get(id)
@@ -281,13 +281,12 @@ def update_tarea(id):
     if body is None:
         raise APIException('Wrong data', status_code=404)
     if "nombre_tarea" in body:
-       Tarea.nombre_tarea = body["nombre_tarea"]
+       tarea.nombre_tarea = body["nombre_tarea"]
     if "fecha_entrega" in body:
-       Tarea.fecha_entrega = body["fecha_entrega"]
+       tarea.fecha_entrega = body["fecha_entrega"]
     if "horas_totales" in body:
-        Tarea.horas_totales= body["horas_totales"]
-    if "estado_" in body:
-        Tarea.estado= body["estado"]
+       tarea.horas_totales= body["horas_totales"]
+
     db.session.commit()
     return jsonify("All good, updated!"), 200
 
