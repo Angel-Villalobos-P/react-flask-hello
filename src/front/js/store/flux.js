@@ -30,7 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			ClientesInfo: theid => {
-				fetch("https://3001-moccasin-falcon-uqhn3gyc.ws-us03.gitpod.io/api/clientes" + theid)
+				fetch(process.env.BACKEND_URL + "/api/clientes/" + theid)
 					.then(response => response.json())
 					.then(response => setStore({ clientesDetails: response.result }));
 			},

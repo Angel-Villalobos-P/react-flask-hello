@@ -5,7 +5,7 @@ db = SQLAlchemy()
 class Profesional(db.Model):
     __tablename__ = 'profesional'
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(120), unique=True, nullable=False)
+    nombre_de_usuario = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), unique=False, nullable=False)
     profesion = db.Column(db.String(120), unique=False, nullable=False)
     cedula_profesional = db.Column(db.Integer, unique=True, nullable=False)
@@ -18,7 +18,7 @@ class Profesional(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "username": self.username,
+            "nombre_de_usuario": self.nombre_de_usuario,
             "profesion": self.profesion,
             "cedula_profesional": self.cedula_profesional,
             "nombre_profesional": self.nombre_profesional,
