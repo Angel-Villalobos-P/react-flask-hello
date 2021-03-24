@@ -14,7 +14,7 @@ export const Login = () => {
 
 		const data = { email: email, password: password };
 
-		fetch("https://3001-magenta-kangaroo-ckz5y6of.ws-us03.gitpod.io/api/login", {
+		fetch(process.env.BACKEND_URL + "/api/login", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
