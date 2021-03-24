@@ -11,8 +11,6 @@ class Profesional(db.Model):
     cedula_profesional = db.Column(db.Integer, unique=True, nullable=False)
     nombre_profesional = db.Column(db.String(120), unique=False, nullable=False)
     correo_profesional = db.Column(db.String(120), unique=True, nullable=False)
-    estado_profesional = db.Column(db.Boolean(), unique=False, nullable=True)
-
 
     def __repr__(self):
          return f"<profesional {self.id} - {self.nombre_profesional}>"

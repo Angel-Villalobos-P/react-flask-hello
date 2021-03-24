@@ -37,7 +37,7 @@ export const SignUp = () => {
 			correodeltrabajador: correoTrabajo
 		};
 
-		fetch("https://3001-magenta-kangaroo-ckz5y6of.ws-us03.gitpod.io/api/profesional", {
+		fetch(process.env.BACKEND_URL + "/api/profesional", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"

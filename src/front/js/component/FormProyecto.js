@@ -28,6 +28,32 @@ export const FormProyecto = () => {
 		});
 	};
 
+	const [datos, setDatos] = useState({
+		nombre_proyecto: "",
+		descripcion_proyecto: "",
+		fecha_entrega: new Date(),
+		id_cliente: 1
+	});
+
+	// const handleChange = event => {
+	// 	console.log(event.target.name);
+	// 	console.log(event.target.value);
+	// 	setDatos({
+	// 		...datos,
+	// 		[event.target.name]: event.target.value
+	// 	});
+	// 	console.log("cliente a enviar: ", datos);
+	// };
+
+	const enviarDatos = event => {
+		event.preventDefault();
+		console.log(
+			"enviando datos..." + datos.nombre_proyecto + " " + datos.descripcion_proyecto + " " + datos.fecha_entrega
+		);
+		console.log(datos);
+		actions.AddProyecto(datos);
+	};
+
 	return (
 		<div
 			className="modal fade"
