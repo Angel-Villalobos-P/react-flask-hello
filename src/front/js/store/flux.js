@@ -72,7 +72,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//CRUD DE PROYECTOS
 			loadProyectos: () => {
-				//const _store = getStore();
+				const _store = getStore();
 				fetch(process.env.BACKEND_URL + "/api/proyectos")
 					.then(response => response.json())
 					.then(response => {
@@ -81,15 +81,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			AddProyecto: proyecto => {
 				const _store = getStore();
+				const currentCliente = _store.clienteActual;
+				if (currentCliente && proyecto.id_cliente === currentCliente.id) {
+					currentCliente.proyectos.push(proyecto);
+				}
 				fetch(process.env.BACKEND_URL + "/api/proyectos", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
 					},
 					body: JSON.stringify(proyecto)
-				});
-				_store.proyectos.push(proyecto);
-				setStore({ proyecto: _store.proyecto });
+				})
+					.then(response => response.json())
+					.then(data => getActions().loadProyectos());
 			},
 			DeleteProyecto: proyecto => {
 				fetch(process.env.BACKEND_URL + "/api/proyectos/" + proyecto.id, {
@@ -122,15 +126,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			AddTarea: tarea => {
 				const _store = getStore();
+				const currentProyecto = _store.proyectoActual;
+				if (currentProyecto && tarea.id_proyecto === currentProyecto.id) {
+					currentProyecto.tareas.push(tarea);
+				}
 				fetch(process.env.BACKEND_URL + "/api/tareas", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
 					},
 					body: JSON.stringify(tarea)
-				});
-				_store.tareas.push(tarea);
-				setStore({ tareas: _store.tareas });
+				})
+					.then(response => response.json())
+					.then(data => getActions().loadTareas());
 			},
 			UpdateTarea: tarea => {
 				fetch(process.env.BACKEND_URL + "/api/tareas/" + tarea.id, {
@@ -142,6 +150,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(response => response.json())
 					.then(data => getActions().loadTareas());
+				//getActions().updateActualTarea();
 			},
 			DeleteTarea: tarea => {
 				fetch(process.env.BACKEND_URL + "/api/tareas/" + tarea.id, {
@@ -164,6 +173,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				}
 				setStore({ clientes: clienteSelected });
+			},
+			updateActualTarea: () => {
+				const _store = getStore();
+				const _proyectoActual = _store.proyectoActual;
+				const tareas = _store.tareas; //todas
+				const tareasActual = []; // del proyecto actual
+				if (tareas) {
+					for (let i = 0; i < tareas; i++) {
+						if (tareas[i].id_proyecto === proyectoActual.id) {
+							tareasActual.push(tareas[i]);
+						}
+					}
+				}
+				setStore({ proyectoActual: _proyectoActual });
 			}
 		}
 	};

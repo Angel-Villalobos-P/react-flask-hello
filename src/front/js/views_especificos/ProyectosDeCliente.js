@@ -62,12 +62,12 @@ export const ProyectosDeCliente = () => {
 	const getTareasCompletadas = _proyecto => {
 		const tareas = _proyecto.tareas;
 		var tareasCompletadas = 0;
-		if (tareas.length !== 0) {
+		if (tareas && tareas.length !== 0) {
 			for (let i = 0; i < tareas.length; i++) {
 				tareasCompletadas += tareas[i].completada ? 1 : 0;
 			}
 		}
-		return tareasCompletadas + "/" + tareas.length;
+		return tareasCompletadas + "/" + (tareas !== undefined ? tareas.length : "0");
 	};
 
 	const getTotalHoras = _proyecto => {
@@ -75,7 +75,7 @@ export const ProyectosDeCliente = () => {
 		var horas = 0;
 		var minutos = 0;
 		var segundos = 0;
-		if (tareas.length !== 0) {
+		if (tareas && tareas.length !== 0) {
 			for (let i = 0; i < tareas.length; i++) {
 				horas += parseInt(tareas[i].horas_totales.split(":")[0]);
 				minutos += parseInt(tareas[i].horas_totales.split(":")[1]);

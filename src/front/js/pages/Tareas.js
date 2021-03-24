@@ -48,7 +48,6 @@ export const Tareas = () => {
 												<li>
 													<a
 														data-toggle="modal"
-														// data-target="#user-setting"
 														data-target="#form-usuario"
 														href="#"
 														rel="nofollow"
