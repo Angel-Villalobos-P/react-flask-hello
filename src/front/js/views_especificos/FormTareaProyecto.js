@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Context } from "../store/appContext";
 import DatePicker from "react-datepicker";
 
-export const FormTarea = () => {
+export const FormTareaProyecto = () => {
 	const [startDate, setStartDate] = useState(new Date());
 	const { store, actions } = useContext(Context);
 
@@ -17,7 +17,7 @@ export const FormTarea = () => {
 	};
 
 	const [tarea, setTarea] = useState({
-		id_proyecto: 0,
+		id_proyecto: store.proyectoActual.id,
 		nombre_tarea: "",
 		fecha_entrega: startDate.toLocaleDateString(options),
 		horas_totales: "00:00",
@@ -26,6 +26,7 @@ export const FormTarea = () => {
 
 	const agregarTarea = () => {
 		actions.AddTarea(tarea);
+		// actions.agregarTareaStore(tarea, tarea.id_proyecto);
 	};
 
 	const handleChange = event => {
@@ -68,7 +69,7 @@ export const FormTarea = () => {
 						</div>
 						<div className="form-group">
 							<label>Proyecto:</label>
-							<select
+							{/* <select
 								className="custom-select"
 								id="inputGroupSelect01"
 								onChange={handleChange}
@@ -82,7 +83,7 @@ export const FormTarea = () => {
 											</option>
 										);
 									})}
-							</select>
+							</select> */}
 						</div>
 						<div className="form-group">
 							<div className="row">

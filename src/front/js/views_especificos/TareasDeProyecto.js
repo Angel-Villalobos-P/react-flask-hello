@@ -7,10 +7,12 @@ import "../../styles/TareaCard.scss";
 import Swal from "sweetalert2";
 import { Timer } from "../component/Timer";
 import DatePicker from "react-datepicker";
+import { FormTareaProyecto } from "./FormTareaProyecto";
 
-export const Tareas_view = () => {
+export const TareasDeProyecto = () => {
 	const { store, actions } = useContext(Context);
 	const [startDate, setStartDate] = useState(new Date());
+	const [pryectoName, setPryectoName] = useState("");
 
 	// const [timer, setTimer] = useState(false);
 	const [tareaCompletada, setTareaCompletada] = useState({});
@@ -284,12 +286,24 @@ export const Tareas_view = () => {
 		console.log(tareaEditada);
 	};
 
+	const getNombreProyecto = id_proyecto => {
+		const proyectos = store.proyectos;
+		for (let i = 0; i < proyectos.length; i++) {
+			if (proyectos[i].id === id_proyecto) {
+				return proyectos[i].nombre_proyecto;
+			}
+		}
+	};
+
 	return (
 		<>
 			<div className="view vh-100">
 				<header className="page-header">
 					<div className="container-fluid d-flex justify-content-between">
-						<h2 className="no-margin-bottom titulo-dashboard">Tareas</h2>
+						<h2 className="no-margin-bottom titulo-dashboard">
+							{store.proyectoActual.nombre_proyecto + " " + "/ "}
+							Tareas
+						</h2>
 						{/* <NewCostumer /> */}
 						<button
 							id="btn-nuevo-cliente"
@@ -305,134 +319,112 @@ export const Tareas_view = () => {
 				</header>
 				<div className="container-fluid">
 					<div className="row d-block">
-						{!!store.proyectos &&
-							store.proyectos.map((proyecto, i) => {
+						{!!store.proyectoActual.tareas &&
+							store.proyectoActual.tareas.map((tarea, index) => {
 								return (
-									<div key={i}>
-										<h2 className="no-margin-bottom titulo-dashboard">
-											{proyecto.nombre_proyecto}
-										</h2>
-										{!!proyecto.tareas &&
-											proyecto.tareas.map((tarea, index) => {
-												return (
-													<div key={index} className="tarea">
-														<div className="row bg-white has-shadow">
-															<div className="left-col col-lg-6 d-flex align-items-center justify-content-between">
-																<div className="d-flex align-items-center">
-																	<div
-																		className="icon-play bg-violet"
-																		// onClick={() => temporizador(tarea)}>
-																		onClick={() => {
-																			setTareaActual(tarea);
-																			// if (Object.keys(tareaActual).length === 0) {
-																			// 	setTareaActual(tarea);
-																			// 	console.log("desde componente ", tareaActual);
-																			// }
-																			console.log("desde segundo ", tareaActual);
+									<div key={index} className="tarea">
+										<div className="row bg-white has-shadow">
+											<div className="left-col col-lg-6 d-flex align-items-center justify-content-between">
+												<div className="d-flex align-items-center">
+													<div
+														className="icon-play bg-violet"
+														// onClick={() => temporizador(tarea)}>
+														onClick={() => {
+															setTareaActual(tarea);
+															// if (Object.keys(tareaActual).length === 0) {
+															// 	setTareaActual(tarea);
+															// 	console.log("desde componente ", tareaActual);
+															// }
+															console.log("desde segundo ", tareaActual);
 
-																			setTimer({
-																				timer_running: !timer.timer_running,
-																				id_tarea: tarea.id
-																			});
-																		}}>
-																		{timer.timer_running &&
-																		timer.id_tarea === tarea.id ? (
-																			<i className="fas fa-pause" />
-																		) : (
-																			<i className="fas fa-play" />
-																		)}
-																		{/* {timer ? (
+															setTimer({
+																timer_running: !timer.timer_running,
+																id_tarea: tarea.id
+															});
+														}}>
+														{timer.timer_running && timer.id_tarea === tarea.id ? (
 															<i className="fas fa-pause" />
 														) : (
 															<i className="fas fa-play" />
-														)} */}
-																	</div>
-																	<div className="tarea-title">
-																		<h3 className="h4">{tarea.nombre_tarea}</h3>
-																		{/* <Timer /> */}
-																		<div className="timer">
-																			<small className="d-flex">
-																				<i
-																					className="far fa-calendar-alt"
-																					style={{ marginRight: "4px" }}
-																				/>
-																				{formatFecha(tarea.fecha_entrega)}
-																				<i
-																					className="far fa-clock"
-																					style={{
-																						marginRight: "4px",
-																						marginLeft: "10px"
-																					}}
-																				/>
-																				Temporizador{" "}
-																				{timer.id_tarea === tarea.id
-																					? totalHoras
-																					: "00:00:00"}
-																				<a
-																					className="item-editar-tarea"
-																					href="#"
-																					onClick={() =>
-																						setTareaEditada(tarea)
-																					}
-																					data-toggle="modal"
-																					data-target="#form-editar-tarea"
-																					rel="nofollow">
-																					<i
-																						className="far fa-edit"
-																						style={{
-																							marginRight: "4px",
-																							marginLeft: "15px"
-																						}}
-																					/>
-																					Editar
-																				</a>
-																				<a
-																					className="item-eliminar-tarea"
-																					href="#"
-																					onClick={() => eliminar(tarea)}>
-																					<i
-																						className="far fa-trash-alt"
-																						style={{
-																							marginRight: "4px",
-																							marginLeft: "15px"
-																						}}
-																					/>
-																					Eliminar{" "}
-																				</a>
-																			</small>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															<div className="right-col col-lg-6 d-flex align-items-center justify-content-end">
-																{/* <div className="time">12:00 </div> */}
-																<div className="time">{tarea.horas_totales} </div>
-																<div className="form-check checkbox">
-																	<input
-																		className="form-check-input checkbox"
-																		type="checkbox"
-																		name="completada"
-																		id="flexCheckDefault"
-																		// onChange={completarTarea}
-																		// onClick={e => completarTarea(e, tarea)}
-																		onClick={e => completarTarea(e, tarea)}
-																		// {...(tarea.completada ? "checked" : "")}
+														)}
+													</div>
+													<div className="tarea-title">
+														<h3 className="h4">{tarea.nombre_tarea}</h3>
+														<div className="timer">
+															<small className="">
+																<i
+																	className="far fa-calendar-alt"
+																	style={{ marginRight: "4px" }}
+																/>
+																{formatFecha(tarea.fecha_entrega)}
+																<i
+																	className="far fa-clock"
+																	style={{ marginRight: "4px", marginLeft: "10px" }}
+																/>
+																Temporizador{" "}
+																{timer.id_tarea === tarea.id ? totalHoras : "00:00:00"}
+																{/* <i
+																	className="far fa-file-alt"
+																	style={{ marginLeft: "10px", marginRight: "4px" }}
+																/>
+																{getNombreProyecto(tarea.id_proyecto)} */}
+																<a
+																	className="item-editar-tarea"
+																	href="#"
+																	onClick={() => setTareaEditada(tarea)}
+																	data-toggle="modal"
+																	data-target="#form-editar-tarea"
+																	rel="nofollow">
+																	<i
+																		className="far fa-edit"
+																		style={{
+																			marginRight: "4px",
+																			marginLeft: "15px"
+																		}}
 																	/>
-																	<label
-																		className="form-check-label"
-																		htmlFor="flexCheckDefault"
+																	Editar
+																</a>
+																<a
+																	className="item-eliminar-tarea"
+																	href="#"
+																	onClick={() => eliminar(tarea)}>
+																	<i
+																		className="far fa-trash-alt"
+																		style={{
+																			marginRight: "4px",
+																			marginLeft: "15px"
+																		}}
 																	/>
-																</div>
-															</div>
+																	Eliminar{" "}
+																</a>
+															</small>
 														</div>
 													</div>
-												);
-											})}
+												</div>
+											</div>
+											<div className="right-col col-lg-6 d-flex align-items-center justify-content-end">
+												{/* <div className="time">12:00 </div> */}
+												<div className="time">{tarea.horas_totales} </div>
+												<div className="form-check checkbox">
+													<input
+														className="form-check-input checkbox"
+														type="checkbox"
+														name="completada"
+														id="flexCheckDefault"
+														// onChange={completarTarea}
+														// onClick={e => completarTarea(e, tarea)}
+														onClick={e => completarTarea(e, tarea)}
+														// {...(tarea.completada ? "checked" : "")}
+													/>
+													<label className="form-check-label" htmlFor="flexCheckDefault" />
+												</div>
+											</div>
+										</div>
 									</div>
 								);
 							})}
 					</div>
-					<FormTarea />
+					<FormTareaProyecto />
 					<div
 						className="modal fade"
 						id="form-editar-tarea"

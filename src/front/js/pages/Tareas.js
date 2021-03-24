@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FormUsuario } from "../component/FormUsuario";
 import { Tareas_view } from "./Tareas_view";
 import { SidebarItems } from "../component/SidebarItems";
+import { Tareas_view2 } from "./Tareas_view2";
 
 export const Tareas = () => {
 	return (
@@ -89,7 +90,8 @@ export const Tareas = () => {
 					</ul>
 				</nav>
 				<div className="content-inner vw-100">
-					<Tareas_view />
+					{/* <Tareas_view /> */}
+					<Tareas_view2 />
 				</div>
 			</div>
 		</div>

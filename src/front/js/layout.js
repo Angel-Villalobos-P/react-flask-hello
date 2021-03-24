@@ -31,6 +31,9 @@ import { Inicio } from "./pages/Inicio";
 import { Calendario } from "./pages/Calendario";
 import { Tareas } from "./pages/Tareas";
 import { Proyectos } from "./pages/Proyectos";
+import { Proyectos_cliente } from "./views_especificos/Proyectos_cliente";
+import { Tareas_proyecto } from "./views_especificos/Tareas_proyecto";
+import { TareasDeProyecto } from "./views_especificos/TareasDeProyecto";
 
 //create your first component
 const Layout = () => {
@@ -99,6 +102,15 @@ const Layout = () => {
 						<Route exact path="/Sidebar">
 							<Sidebar />
 						</Route>
+						<Route exact path="/ProyectosCliente">
+							<Proyectos_cliente />
+						</Route>
+						<Route exact path="/TareasProyectos">
+							<Tareas_proyecto />
+						</Route>
+						{/* <Route exact path="/TareasDeProyecto">
+							<TareasDeProyecto />
+						</Route> */}
 						<Route>
 							<h1>Not found!</h1>
 						</Route>

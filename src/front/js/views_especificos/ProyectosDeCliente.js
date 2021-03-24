@@ -8,8 +8,9 @@ import Swal from "sweetalert2";
 import { FormProyecto } from "../component/FormProyecto";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { FormProyectoClientes } from "./FormProyectoCliente";
 
-export const Proyectos_view = () => {
+export const ProyectosDeCliente = () => {
 	const { store, actions } = useContext(Context);
 	const [proyectoEditado, setProyectoEditado] = useState({});
 	const [startDate, setStartDate] = useState(new Date());
@@ -61,12 +62,12 @@ export const Proyectos_view = () => {
 	const getTareasCompletadas = _proyecto => {
 		const tareas = _proyecto.tareas;
 		var tareasCompletadas = 0;
-		if (tareas && tareas.length !== 0) {
+		if (tareas.length !== 0) {
 			for (let i = 0; i < tareas.length; i++) {
 				tareasCompletadas += tareas[i].completada ? 1 : 0;
 			}
 		}
-		return tareasCompletadas + "/" + (tareas !== undefined ? tareas.length : "0");
+		return tareasCompletadas + "/" + tareas.length;
 	};
 
 	const getTotalHoras = _proyecto => {
@@ -74,7 +75,7 @@ export const Proyectos_view = () => {
 		var horas = 0;
 		var minutos = 0;
 		var segundos = 0;
-		if (tareas && tareas.length !== 0) {
+		if (tareas.length !== 0) {
 			for (let i = 0; i < tareas.length; i++) {
 				horas += parseInt(tareas[i].horas_totales.split(":")[0]);
 				minutos += parseInt(tareas[i].horas_totales.split(":")[1]);
@@ -149,7 +150,9 @@ export const Proyectos_view = () => {
 			<div className="view vh-100">
 				<header className="page-header">
 					<div className="container-fluid d-flex justify-content-between">
-						<h2 className="no-margin-bottom titulo-dashboard">Proyectos</h2>
+						<h2 className="no-margin-bottom titulo-dashboard">
+							{store.clienteActual.nombre_cliente + " "}/ Proyectos
+						</h2>
 						<button
 							id="btn-nuevo-proyecto"
 							type="button"
@@ -164,8 +167,8 @@ export const Proyectos_view = () => {
 				</header>
 				<div className="container-fluid">
 					<div className="row">
-						{!!store.proyectos &&
-							store.proyectos.map((proyecto, index) => {
+						{!!store.clienteActual.proyectos &&
+							store.clienteActual.proyectos.map((proyecto, index) => {
 								return (
 									<div id="proyecto-card" key={index} className="card border-primary has-shadow">
 										<div className="card-header">
@@ -235,12 +238,11 @@ export const Proyectos_view = () => {
 															/>
 															{/* 4:00 */}
 															{getTotalHoras(proyecto)}
-															<i
+															{/* <i
 																className="fas fa-user"
 																style={{ marginRight: "5px", marginLeft: "15px" }}
 															/>
-															{/* Cliente nombre */}
-															{getNombreCliente(proyecto.id_cliente)}
+															{getNombreCliente(proyecto.id_cliente)} */}
 														</small>
 													</div>
 												</div>
@@ -250,7 +252,7 @@ export const Proyectos_view = () => {
 								);
 							})}
 					</div>
-					<FormProyecto />
+					<FormProyectoClientes />
 					<div
 						className="modal fade"
 						id="form-editar-proyecto"
@@ -281,17 +283,13 @@ export const Proyectos_view = () => {
 											value={proyectoEditado.nombre_proyecto}
 										/>
 									</div>
-									<div className="form-group">
+									{/* <div className="form-group">
 										<label>Cliente:</label>
 										<select
 											className="custom-select"
 											id="clienteSeleccionado"
 											onChange={handleChange}
-											name="id_cliente"
-											// value={proyectoEditado.nombre_proyecto}
-											// value={clienteDelProyecto}
-										>
-											{/* <option selected>Elija el cliente...</option> */}
+											name="id_cliente">
 											{!!store.clientes &&
 												store.clientes.map((cliente, index) => {
 													return (
@@ -301,7 +299,7 @@ export const Proyectos_view = () => {
 													);
 												})}
 										</select>
-									</div>
+									</div> */}
 									<div className="form-group">
 										<label>Descripción:</label>
 										<textarea

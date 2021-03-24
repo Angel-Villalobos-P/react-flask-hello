@@ -6,10 +6,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			clientes: [],
 			clientesDetails: null,
 			proyectos: [],
-			tareas: []
+			tareas: [],
+			clienteActual: null,
+			proyectoActual: null
 		},
 
 		actions: {
+			setClienteActual: cliente => {
+				setStore({ clienteActual: cliente });
+			},
+			setProyectoActual: proyecto => {
+				setStore({ proyectoActual: proyecto });
+			},
 			Temporizador: () => {
 				const store = getStore();
 				setStore({ timer: !store.timer });
@@ -84,7 +92,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ proyecto: _store.proyecto });
 			},
 			DeleteProyecto: proyecto => {
-				const _store = getStore();
 				fetch(process.env.BACKEND_URL + "/api/proyectos/" + proyecto.id, {
 					method: "DELETE",
 					headers: {
@@ -96,7 +103,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => getActions().loadProyectos());
 			},
 			UpdateProyecto: proyecto => {
-				const _store = getStore();
 				fetch(process.env.BACKEND_URL + "/api/proyectos/" + proyecto.id, {
 					method: "PUT",
 					headers: {
@@ -147,6 +153,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(response => response.json())
 					.then(data => getActions().loadTareas());
+			},
+			agregarTareaStore: (tarea, idCliente) => {
+				const _store = getStore();
+				var clienteSelected = null;
+				for (let i = 0; i < _store.clientes.length; i++) {
+					if (_store.clientes[i].id === idCliente) {
+						_store.clientes[i].push(tarea);
+						clienteSelected = _store.clientes[i];
+					}
+				}
+				setStore({ clientes: clienteSelected });
 			}
 		}
 	};

@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Context } from "../store/appContext";
 
-export const FormProyecto = () => {
+export const FormProyectoClientes = () => {
 	//para el formato de las fechas
 	var options = {
 		weekday: "long",
@@ -17,7 +17,7 @@ export const FormProyecto = () => {
 	const [startDate, setStartDate] = useState(new Date());
 	// const [agregado, setAgregado] = useState(false);
 	const [proyecto, setProyecto] = useState({
-		id_cliente: 0,
+		id_cliente: store.clienteActual.id,
 		nombre_proyecto: "",
 		descripcion_proyecto: "",
 		fecha_entrega: startDate.toLocaleDateString(options),
@@ -65,7 +65,7 @@ export const FormProyecto = () => {
 								name="nombre_proyecto"
 							/>
 						</div>
-						<div className="form-group">
+						{/* <div className="form-group">
 							<label>Cliente:</label>
 							<select
 								className="custom-select"
@@ -82,7 +82,7 @@ export const FormProyecto = () => {
 										);
 									})}
 							</select>
-						</div>
+						</div> */}
 						<div className="form-group">
 							<label>Descripción:</label>
 							<textarea

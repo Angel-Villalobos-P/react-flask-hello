@@ -71,8 +71,12 @@ export const Clientes_view = () => {
 								return (
 									<div key={index} id="cliente-card" className="card border-primary has-shadow mx-2">
 										<div className="card-header">
-											<Link to="/">
-												<h5 className="nombre-cliente">{item.nombre_cliente}</h5>
+											<Link to="/ProyectosCliente">
+												<h5
+													className="nombre-cliente"
+													onClick={() => actions.setClienteActual(item)}>
+													{item.nombre_cliente}
+												</h5>
 											</Link>
 										</div>
 										<div className="card-menu">

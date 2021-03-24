@@ -56,7 +56,8 @@ class Proyecto(db.Model):
     descripcion_proyecto = db.Column(db.String(120), unique=False, nullable=False)
     # fecha_entrega = db.Column(db.Date, unique=False, nullable=False)
     fecha_entrega = db.Column(db.String(200), unique=False, nullable=False)
-    horas_totales = db.Column(db.Integer, unique=False, nullable=False)
+    # horas_totales = db.Column(db.Integer, unique=False, nullable=False)
+    horas_totales = db.Column(db.String(150), unique=False, nullable=False)
     tareas = db.relationship('Tarea', backref='proyecto')
 
     def __repr__(self):
@@ -80,6 +81,7 @@ class Tarea(db.Model):
     nombre_tarea = db.Column(db.String(120), unique=False, nullable=False)
     fecha_entrega = db.Column(db.String(150), unique=False, nullable=False)
     horas_totales = db.Column(db.String(150), unique=False, nullable=False)
+    completada = db.Column(db.Boolean(), unique=False, nullable=False)
 
     def __repr__(self):
          return f"<tarea {self.id} - {self.nombre_tarea}>"
@@ -89,5 +91,7 @@ class Tarea(db.Model):
             "id": self.id,
             "nombre_tarea": self.nombre_tarea,
             "fecha_entrega": self.fecha_entrega,
-            "horas_totales": self.horas_totales
+            "horas_totales": self.horas_totales,
+            "completada": self.completada,
+            "id_proyecto":self.id_proyecto
         }

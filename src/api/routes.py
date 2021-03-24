@@ -185,7 +185,7 @@ def add_proyecto():
     request_body = request.get_json()
     print(request_body)
     new_proyecto = Proyecto(id_cliente=request_body["id_cliente"], nombre_proyecto=request_body["nombre_proyecto"], descripcion_proyecto=request_body["descripcion_proyecto"],
-     fecha_entrega=request_body["fecha_entrega"], horas_totales=int(request_body["horas_totales"]))
+     fecha_entrega=request_body["fecha_entrega"], horas_totales=request_body["horas_totales"])
     db.session.add(new_proyecto)
     db.session.commit()
     return jsonify("All good, added"), 200
@@ -218,6 +218,10 @@ def update_proyecto(id):
        proyecto.fecha_entrega = body["fecha_entrega"]
     if "horas_totales" in body:
        proyecto.horas_totales= body["horas_totales"]
+    if "id_cliente" in body:
+       proyecto.id_cliente= body["id_cliente"]
+    if "descripcion_proyecto" in body:
+       proyecto.descripcion_proyecto= body["descripcion_proyecto"]
 
     db.session.commit()
     return jsonify("All good, updated!"), 200
@@ -253,7 +257,8 @@ def add_tarea():
     # recibir info del request
     request_body = request.get_json()
     print(request_body)
-    new_tarea = Tarea(id_proyecto=request_body["id_proyecto"], nombre_tarea=request_body["nombre_tarea"], fecha_entrega=request_body["fecha_entrega"], horas_totales=request_body["horas_totales"])
+    new_tarea = Tarea(id_proyecto=request_body["id_proyecto"], nombre_tarea=request_body["nombre_tarea"], 
+    fecha_entrega=request_body["fecha_entrega"], horas_totales=request_body["horas_totales"], completada=request_body["completada"])
     db.session.add(new_tarea)
     db.session.commit()
     return jsonify("All good, added"), 200
@@ -286,6 +291,10 @@ def update_tarea(id):
        tarea.fecha_entrega = body["fecha_entrega"]
     if "horas_totales" in body:
        tarea.horas_totales= body["horas_totales"]
+    if "completada" in body:
+       tarea.completada= body["completada"]
+    if "id_proyecto" in body:
+       tarea.id_proyecto= body["id_proyecto"]
 
     db.session.commit()
     return jsonify("All good, updated!"), 200

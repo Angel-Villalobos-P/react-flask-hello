@@ -1,14 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { SidebarItems } from "../component/SidebarItems";
-import ClienteCard from "../component/ClienteCard";
-import { Clientes_view } from "./Clientes_view";
-import { UserName } from "../component/userName";
 import { FormUsuario } from "../component/FormUsuario";
+import { ProyectosDeCliente } from "./ProyectosDeCliente";
 
-export const Clientes = () => {
-	const [activeLink, setActiveLink] = useState(null);
-
+export const Proyectos_cliente = () => {
 	return (
 		<div className="page">
 			<div className="header">
@@ -82,10 +78,7 @@ export const Clientes = () => {
 					<ul className="nav-menu-items">
 						{SidebarItems.map((item, index) => {
 							return (
-								<li
-									key={index}
-									className={item.cName + (activeLink === index ? " active" : "")}
-									onClick={() => setActiveLink(index)}>
+								<li key={index} className={item.cName}>
 									<Link to={item.path}>
 										{item.icon}
 										<span>{item.title}</span>
@@ -96,7 +89,7 @@ export const Clientes = () => {
 					</ul>
 				</nav>
 				<div className="content-inner vw-100">
-					<Clientes_view />
+					<ProyectosDeCliente />
 				</div>
 			</div>
 		</div>
