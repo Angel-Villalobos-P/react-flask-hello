@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
+import "../../../styles/landing.scss";
 
 export const Login = () => {
 	const [email, setEmail] = useState("");
@@ -43,14 +44,14 @@ export const Login = () => {
 				<div className="modal-dialog">
 					<div className="modal-content">
 						<div className="modal-header">
-							<h5 className="modal-title" id="exampleModalLabel">
+							<h5 className="modal-title text-label-landing" id="exampleModalLabel">
 								Iniciar sesión
 							</h5>
 							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						<div className="modal-body">
+						<div className="modal-body text-label-landing">
 							Bienvenido a PlanificApp
 							<hr />
 							<div>
@@ -90,7 +91,7 @@ export const Login = () => {
 									</button>
 								</div>
 							</form>
-							{redirect ? <Redirect to="/inicio" /> : ""}
+							{redirect ? <Redirect to="/clientes" /> : ""}
 						</div>
 					</div>
 				</div>

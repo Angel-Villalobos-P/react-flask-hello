@@ -424,6 +424,7 @@ export const Tareas_view2 = () => {
 														// onClick={e => completarTarea(e, tarea)}
 														onClick={e => completarTarea(e, tarea)}
 														// {...(tarea.completada ? "checked" : "")}
+														checked={tarea.completada}
 													/>
 													<label className="form-check-label" htmlFor="flexCheckDefault" />
 												</div>

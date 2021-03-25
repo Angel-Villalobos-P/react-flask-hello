@@ -10,10 +10,11 @@ export const Precios = () => (
 					<span className="price">Gratis</span>
 					<h6 className="card-subtitle my-2">Uso Limitado</h6>
 					<ul>
-						<li>Feature 1</li>
-						<li>Feature 2</li>
-						<li>Feature 3</li>
-						<li>Feature 4</li>
+						<li>Registrar clientes</li>
+						<li>Registrar proyectos</li>
+						<li>Registrar tareas</li>
+						<li>Seguimiento tareas</li>
+						<li>Hasta 5 proyectos</li>
 					</ul>
 					<button type="button" className="btn premium-card-button">
 						Seleccionar Plan
@@ -29,13 +30,12 @@ export const Precios = () => (
 				<span>/Mes</span>
 				<h6 className="card-subtitle my-2">Uso Ilimitado!</h6>
 				<ul>
-					<li>Feature 1</li>
-					<li>Feature 2</li>
-					<li>Feature 3</li>
-					<li>Feature 4</li>
-					<li>Premium Feature 4</li>
-					<li>Premium Feature 4</li>
-					<li>Premium Feature 4</li>
+					<li>Registrar clientes</li>
+					<li>Registrar proyectos</li>
+					<li>Registrar tareas</li>
+					<li>Facturación</li>
+					<li>Seguimiento tareas</li>
+					<li>Portafolio de proyectos</li>
 				</ul>
 				<button type="button" className="btn premium-card-button">
 					Seleccionar Plan

@@ -27,7 +27,7 @@ export const Contacto = () => (
 					placeholder="Correo"
 				/>
 				<small id="emailHelp" className="form-text text-muted">
-					We will never share your email with anyone else
+					Nunca compartiremos tu información con nadie más
 				</small>
 			</div>
 

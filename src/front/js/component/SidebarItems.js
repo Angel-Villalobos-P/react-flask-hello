@@ -7,12 +7,12 @@ export const SidebarItems = [
 	// 	icon: <i className="far fa-image" />,
 	// 	cName: "nav-text"
 	// },
-	{
-		title: "Inicio",
-		path: "/inicio",
-		icon: <i className="fas fa-home" />,
-		cName: "nav-text"
-	},
+	// {
+	// 	title: "Inicio",
+	// 	path: "/inicio",
+	// 	icon: <i className="fas fa-home" />,
+	// 	cName: "nav-text"
+	// },
 	{
 		title: "Clientes",
 		path: "/clientes",

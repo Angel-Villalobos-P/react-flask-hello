@@ -417,6 +417,7 @@ export const Tareas_view = () => {
 																		// onClick={e => completarTarea(e, tarea)}
 																		onClick={e => completarTarea(e, tarea)}
 																		// {...(tarea.completada ? "checked" : "")}
+																		checked={tarea.completada}
 																	/>
 																	<label
 																		className="form-check-label"

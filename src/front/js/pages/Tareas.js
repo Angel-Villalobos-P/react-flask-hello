@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FormUsuario } from "../component/FormUsuario";
 import { Tareas_view } from "./Tareas_view";
 import { SidebarItems } from "../component/SidebarItems";
 import { Tareas_view2 } from "./Tareas_view2";
+import { Context } from "../store/appContext";
 
 export const Tareas = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="page">
 			<div className="header">
@@ -41,7 +43,8 @@ export const Tareas = () => {
 												aria-expanded="false"
 												className="nav-link dropdown-toggle">
 												<span className="d-none d-sm-inline-block user-text-name">
-													User name
+													{/* User name */}
+													{store.profesional[0].nombre_de_usuario}
 												</span>
 											</a>
 											<ul aria-labelledby="languages" className="dropdown-menu">
@@ -57,10 +60,12 @@ export const Tareas = () => {
 													</a>
 												</li>
 												<li>
-													<a rel="nofollow" href="#" className="dropdown-item">
-														<i className="fas fa-sign-out-alt dropdown-item-icon" />
-														Salir
-													</a>
+													<Link to="/landingpage">
+														<a rel="nofollow" href="#" className="dropdown-item">
+															<i className="fas fa-sign-out-alt dropdown-item-icon" />
+															Salir
+														</a>
+													</Link>
 												</li>
 											</ul>
 										</li>

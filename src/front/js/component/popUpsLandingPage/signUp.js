@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { WelcomeMessage } from "./welcomeMessage";
+import { Context } from "../../store/appContext";
+import "../../../styles/landing.scss";
 
 export const SignUp = () => {
 	const [nombreUsuario, setNombreUsuario] = useState("");
@@ -9,6 +11,7 @@ export const SignUp = () => {
 	const [numeroCedula, setNumeroCedula] = useState("");
 	const [correoTrabajo, setCorreoTrabajo] = useState("");
 	const [signUpSuccessful, setSignUpSuccessful] = useState(false);
+	const { store, actions } = useContext(Context);
 
 	const handlerSubmit = e => {
 		e.preventDefault();
@@ -47,6 +50,7 @@ export const SignUp = () => {
 			.then(response => response.json())
 			.then(data => {
 				console.log("Resultado", data);
+				actions.loadProfesional();
 			})
 			.catch(error => {
 				console.error("Error", error);
@@ -55,7 +59,12 @@ export const SignUp = () => {
 
 	return (
 		<div>
-			<button type="button" className="btn btn-primary" data-toggle="modal" data-target="#modal8">
+			<button
+				id="registro-btn"
+				type="button"
+				className="btn btn-primary"
+				data-toggle="modal"
+				data-target="#modal8">
 				Registrarse
 			</button>
 			<div
@@ -68,7 +77,7 @@ export const SignUp = () => {
 				<div role="document" className="modal-dialog">
 					<div className="modal-content">
 						<div className="modal-header">
-							<h4 id="exampleModalLabel" className="modal-title">
+							<h4 id="registro-pro" className="modal-title text-label-landing">
 								Registro del profesional
 							</h4>
 							<button type="button" data-dismiss="modal" aria-label="Close" className="close">
@@ -77,7 +86,7 @@ export const SignUp = () => {
 						</div>
 
 						<hr />
-						<div className="modal-body">
+						<div className="modal-body text-label-landing">
 							Bienvenido a PlanificApp
 							<hr />
 							{signUpSuccessful ? (
@@ -85,7 +94,7 @@ export const SignUp = () => {
 							) : (
 								<form onSubmit={e => handlerSubmit(e)}>
 									<div className="form-group">
-										<label>Nombre de usuario</label>
+										<label className="text-label-landing">Nombre de usuario</label>
 										<input
 											type="text"
 											placeholder="Nombre de usuario"
@@ -95,7 +104,7 @@ export const SignUp = () => {
 										/>
 									</div>
 									<div className="form-group">
-										<label>Contraseña</label>
+										<label className="text-label-landing">Contraseña</label>
 										<input
 											type="password"
 											placeholder="contraseña"
@@ -105,7 +114,7 @@ export const SignUp = () => {
 										/>
 									</div>
 									<div className="form-group">
-										<label>Nombre del profesional</label>
+										<label className="text-label-landing">Nombre del profesional</label>
 										<input
 											type="text"
 											placeholder="Nombre"
@@ -115,7 +124,7 @@ export const SignUp = () => {
 										/>
 									</div>
 									<div className="form-group">
-										<label>Profesión</label>
+										<label className="text-label-landing">Profesión</label>
 										<input
 											type="text"
 											placeholder="profesión"
@@ -125,7 +134,7 @@ export const SignUp = () => {
 										/>
 									</div>
 									<div className="form-group">
-										<label>Numero de cedula</label>
+										<label className="text-label-landing">Numero de cedula</label>
 										<input
 											type="number"
 											placeholder="numero de cedula"
@@ -135,7 +144,7 @@ export const SignUp = () => {
 										/>
 									</div>
 									<div className="form-group">
-										<label>Correo del trabajo</label>
+										<label className="text-label-landing">Correo del trabajo</label>
 										<input
 											type="text"
 											placeholder="example@"

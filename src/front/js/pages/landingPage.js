@@ -8,6 +8,8 @@ import { Precios } from "../component/landingpage/precios";
 import { Contacto } from "../component/landingpage/contacto";
 import { Navbar } from "../component/navbar";
 import { Footer } from "../component/footer";
+import { CaracteristicaProyecto } from "../component/landingpage/CaracteristicaProyectos";
+import { CaracteristicasTareas } from "../component/landingpage/CaracteristicaTareas";
 
 export const LandingPage = () => {
 	return (
@@ -15,6 +17,8 @@ export const LandingPage = () => {
 			<Navbar />
 			<LandingCarousel />
 			<Caracteristicas1 />
+			<CaracteristicaProyecto />
+			<CaracteristicasTareas />
 			<Caracteristicas2 />
 			<Precios />
 			<Contacto />

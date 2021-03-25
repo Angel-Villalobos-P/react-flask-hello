@@ -60,6 +60,9 @@ const Layout = () => {
 						<Route exact path="/landingpage">
 							<LandingPage />
 						</Route>
+						<Route exact path="/">
+							<LandingPage />
+						</Route>
 						<Route exact path="/contacto">
 							<ContactoView />
 						</Route>

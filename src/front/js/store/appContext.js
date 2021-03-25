@@ -26,6 +26,7 @@ const injectContext = PassedComponent => {
 			state.actions.loadClientes();
 			state.actions.loadProyectos();
 			state.actions.loadTareas();
+			state.actions.loadProfesional();
 		}, []);
 		return (
 			<Context.Provider value={state}>

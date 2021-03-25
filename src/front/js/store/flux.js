@@ -8,10 +8,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			proyectos: [],
 			tareas: [],
 			clienteActual: null,
-			proyectoActual: null
+			proyectoActual: null,
+			profesional: null
 		},
 
 		actions: {
+			loadProfesional: () => {
+				fetch(process.env.BACKEND_URL + "/api/profesional")
+					.then(response => response.json())
+					.then(response => {
+						setStore({ profesional: [...response] });
+					});
+			},
 			setClienteActual: cliente => {
 				setStore({ clienteActual: cliente });
 			},
