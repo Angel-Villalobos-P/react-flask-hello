@@ -1,0 +1,165 @@
+
+/*
+* ===========================
+*           Tareas
+* ===========================
+*/
+
+.tarea .row {
+  margin: 0;
+  padding: 15px 0;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+// .tarea div[class*='col-'] {
+//   border-right: 1px solid #eee;
+// }
+
+.tarea .text h3 {
+  margin-bottom: 0;
+  color: #555;
+}
+
+.tarea .text small {
+  color: #aaa;
+  font-size: 0.75em;
+}
+
+.tarea .tarea-date span {
+  font-size: 0.9em;
+  color: #999;
+}
+
+.tarea .image {
+  max-width: 50px;
+  min-width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+// .tarea .time,
+// .tarea .comments,
+// .tarea .tarea-progress {
+//   color: #999;
+//   font-size: 0.9em;
+//   margin-right: 20px;
+// }
+.tarea .time {
+  color: #999;
+  font-size: 1.4em;
+  margin-right: 20px;
+}
+
+.tarea .time i,
+.tarea .comments i,
+.tarea .tarea-progress i {
+  margin-right: 5px;
+}
+
+.tarea .tarea-progress {
+  width: 200px;
+}
+
+.tarea .tarea-progress .progress {
+  height: 4px;
+}
+
+.tarea .card {
+  margin-bottom: 0;
+}
+
+.tarea-title {
+    font-size: 1.1em;
+    font-weight: 300;
+    color: #777;
+    margin: 0 20px;
+}
+
+.tarea .icon-play {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    min-width: 40px;
+    max-width: 40px;
+    border-radius: 50%;
+}
+@media (max-width: 991px) {
+  .tarea .right-col {
+    margin-top: 20px;
+    margin-left: 65px;
+  }
+  .tarea .tarea-progress {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tarea .tarea-progress {
+    display: none;
+  }
+}
+
+// .left-col {
+//   border-right: 1px solid #eee;
+//   padding: 15px 0;
+// }
+
+// .left-col {
+//   border-right: none;
+// }
+
+.form-check .form-check-input {
+    position: relative;
+    width: 1.3em;
+    height: 1.3em;
+    margin-right: .5em;
+}
+
+.checkbox:checked::before {
+  background: #796AEE;
+}
+
+.checkbox:checked::after {
+  opacity: 1;
+}
+
+
+// // prueba==============
+// .checkbox label:after {
+//   content: '';
+//   display: table;
+//   clear: both;
+// }
+
+// .checkbox .cr {
+//   position: relative;
+//   display: inline-block;
+//   border: 1px solid #a9a9a9;
+//   border-radius: .25em;
+//   width: 1.3em;
+//   height: 1.3em;
+//   float: left;
+//   margin-right: .5em;
+// }
+
+// .checkbox .cr .cr-icon {
+//   position: absolute;
+//   font-size: .8em;
+//   line-height: 0;
+//   top: 50%;
+//   left: 15%;
+// }
+
+// .checkbox label input[type="checkbox"] {
+//   display: none;
+// }
+
+// .checkbox label input[type="checkbox"]+.cr>.cr-icon {
+//   opacity: 0;
+// }
+
+// .checkbox label input[type="checkbox"]:checked+.cr>.cr-icon {
+//   opacity: 1;
+// }

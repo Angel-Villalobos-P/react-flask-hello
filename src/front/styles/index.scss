@@ -1,3 +1,138 @@
 /* 
     General Styles
 */
+
+
+/*
+CSS Sign up
+*/
+
+.userIcon {
+    font-size: 50px;
+    position: relative;
+    left: 200px;
+    margin-bottom: 50px;
+    
+}
+
+/*
+CSS REcovery
+*/
+
+// .card {
+//     margin-top: 5px;
+//     width: 600px;
+//     height: 500px;
+//     position: relative;
+//     // left: 450px;
+// }
+
+.icon {
+    position: relative;
+    left: 250px;
+    font-size: 50px;
+
+}
+.pass{
+    margin-top: 100px;
+}
+
+.submit{
+    position: relative;
+    margin-bottom: 50px;
+    left: 140px;
+    width: 300px;
+}
+
+/*
+jumbotron
+*/
+.jumbotron{
+    width: 800px;
+    position: relative;
+    left: 400px;
+    margin-top: 30px;
+}
+
+/*
+CSS NewCostumer
+*/
+
+.newmodal {
+    width: 300px;
+    height: 400px;
+
+}
+
+.cedula {
+    width: 200px;
+}
+
+.nombre {
+    width: 400px;
+}
+
+.correo {
+    width: 350px;
+    position: relative;
+    margin-top: 40px;
+}
+
+.telefono {
+    position: relative;
+    margin-top: 80px;
+}
+
+/*
+CSS proyectos views
+*/
+.proIcon {
+    font-size: 25px
+}
+
+/*
+CSS Serch parts
+*/
+#form {width: 800px;
+    margin-top: 10px;
+    position: relative;
+    left: 244px;   
+}
+
+#btn{
+    position: relative;
+    margin-right: 10px;
+    left: 200px;
+    margin-top: 10px;
+}
+
+.hello{
+    margin-left: 50px;
+    font-size: 30px;
+}
+
+.vista-inicio {
+    // background: rgb(199,198,215);
+    // background: linear-gradient(180deg, rgba(199,198,215,1) 0%, rgba(158,158,226,1) 100%, rgba(0,212,255,1) 100%);
+
+    position: relative;
+    background: hsla(242, 58%, 73%, 1);
+    background: linear-gradient(90deg, hsla(242, 58%, 73%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(242, 58%, 73%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(242, 58%, 73%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+
+}
+
+.vista-inicio.inicio-cards {
+    position: absolute;
+    left: 10px;
+}
+
+// .main-container {
+//     position: relative;
+// }
+
+// .main-container.vista-inicio {
+//     position: absolute;
+//     left: 5px;
+// }

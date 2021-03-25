@@ -1,0 +1,43 @@
+.nav-landing {
+    background: #2f333e;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #fff;
+    position: relative;
+    border-radius: 0;
+    // -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    // box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    // z-index: 10;
+    padding-left: 0;
+    padding-right: 0;
+
+    display: flex;
+    justify-content: end;
+    align-items: right;
+}
+.navbar-brand {
+    font-size: 1.7rem;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+// .modal-backdrop.fade {
+//   opacity: 0;
+// }
+
+.text-label-landing {
+    color:black;
+    font-family: 'Montserrat';
+}
+#precios-item-landing-nav, #registro-btn{
+    margin-right: 15px;
+}
+
+.logo-landing {
+    color: white;
+    margin-left: 15px;
+}
+
+.premium-card-button {
+    background: #2f333e;
+    color:white
+}
