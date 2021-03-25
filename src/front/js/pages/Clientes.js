@@ -47,7 +47,8 @@ export const Clientes = () => {
 												className="nav-link dropdown-toggle">
 												<span className="d-none d-sm-inline-block user-text-name">
 													{/* User name */}
-													{store.profesional[0].nombre_de_usuario}
+													{/* {store.profesional[0].nombre_de_usuario} */}
+													{store.profesional ? store.profesional[0].nombre_de_usuario : ""}
 												</span>
 											</a>
 											<ul aria-labelledby="languages" className="dropdown-menu">

@@ -34,6 +34,7 @@ import { Proyectos } from "./pages/Proyectos";
 import { Proyectos_cliente } from "./views_especificos/Proyectos_cliente";
 import { Tareas_proyecto } from "./views_especificos/Tareas_proyecto";
 import { TareasDeProyecto } from "./views_especificos/TareasDeProyecto";
+import { Inicio_view2 } from "./pages/Inicio_view2";
 
 //create your first component
 const Layout = () => {
@@ -111,6 +112,9 @@ const Layout = () => {
 						<Route exact path="/TareasProyectos">
 							<Tareas_proyecto />
 						</Route>
+						{/* <Route exact path="/inicio">
+							<Inicio_view2 />
+						</Route> */}
 						{/* <Route exact path="/TareasDeProyecto">
 							<TareasDeProyecto />
 						</Route> */}

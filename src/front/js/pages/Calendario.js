@@ -1,14 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 // import dateFns from "date-fns";
-// import * as dateFns from "date-fns";
+import * as dateFns from "date-fns";
 import "../../styles/Calendario.scss";
 import Swal from "sweetalert2";
+import { Context } from "../store/appContext";
 
 export const Calendario = () => {
+	const { store, actions } = useContext(Context);
 	const [currentMonth, setCurrentMonth] = useState(new Date());
 	const [selectedDate, setSelectedDate] = useState(new Date());
 	const [days, setDays] = useState([]);
 	const [rows, setRows] = useState([]);
+
+	var options = {
+		weekday: "long",
+		year: "numeric",
+		month: "long",
+		day: "numeric"
+	};
 
 	const renderHeader = () => {
 		const dateFormat = "MMMM yyyy";
@@ -48,9 +57,31 @@ export const Calendario = () => {
 		setDays(days);
 	};
 
-	const test = () => {
-		Swal.fire("Good job!", "You clicked the button!", "success");
+	const getTareas = () => {
+		for (let i = 0; i < store.tareas.length; i++) {
+			const element = store.tareas[i];
+		}
 	};
+
+	const test = d => {
+		// Swal.fire("Good job!", "You clicked the button!", "success");
+		Swal.fire({
+			title: "<strong>Próximas entregas</strong>",
+			icon: "info",
+			html:
+				"You can use <b>bold text</b>, " +
+				"<ul><li>Tarea 1</li><li>Tarea 2</li></ul>" +
+				d.toLocaleDateString(options),
+			confirmButtonText: '<i class="fa fa-thumbs-up"></i> Ok!',
+			confirmButtonAriaLabel: "Ok!"
+		});
+	};
+
+	const entregas = () => {
+		var fechas = ["24/3/2021", "26/3/2021", "28/3/2021"];
+		return fechas;
+	};
+	var fechas = ["24/3/2021", "26/3/2021", "28/3/2021"];
 
 	useEffect(() => {
 		const dateFormat = "dddd";
@@ -99,10 +130,23 @@ export const Calendario = () => {
 						}`}
 						key={day}
 						// onClick={() => onDateClick(dateFns.parse(cloneDay))}>
-						onClick={() => test()}>
+						onClick={() => test(monthStart)}>
 						<span className="number">{formattedDate}</span>
 						<span className="bg">{formattedDate}</span>
 						{/* <i className="fas fa-dot-circle" /> */}
+						{store.proyectos.length != 0
+							? store.proyectos.map((item, i) => {
+									if (item.fecha_entrega.split("/")[0] === formattedDate) {
+										return (
+											<i
+												key={i}
+												className="fas fa-dot-circle fa-xs"
+												style={{ color: "#796AEE" }}
+											/>
+										);
+									}
+							  })
+							: console.log(store.proyectos)}
 					</div>
 				);
 				day = dateFns.addDays(day, 1);

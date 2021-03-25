@@ -45,13 +45,13 @@ export const Contacto = () => (
 		<div className="col-5">
 			<h1>Redes Sociales</h1>
 			<div className="list-group list-group-flush">
-				<a href="#" className="list-group-item list-group-item-action">
+				<a href="https://www.facebook.com/" className="list-group-item list-group-item-action">
 					<i className="fab fa-facebook-square fa-2x" /> Facebook
 				</a>
-				<a href="#" className="list-group-item list-group-item-action">
+				<a href="https://www.instagram.com/" className="list-group-item list-group-item-action">
 					<i className="fab fa-instagram fa-2x" /> Instagram
 				</a>
-				<a href="#" className="list-group-item list-group-item-action">
+				<a href="https://www.twitter.com/" className="list-group-item list-group-item-action">
 					<i className="fab fa-twitter-square fa-2x" /> Twitter
 				</a>
 			</div>

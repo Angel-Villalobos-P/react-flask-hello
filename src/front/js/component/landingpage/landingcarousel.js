@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import pruebaImgUrl from "../../../img/prueba.png";
 
 export const LandingCarousel = () => (
 	<div className="row my-5 py-5 justify-content-center">
@@ -12,6 +13,9 @@ export const LandingCarousel = () => (
 				</div>
 				<div className="carousel-item">
 					<img className="d-block w-100" src="https://picsum.photos/id/239/600/300" alt="Third slide" />
+				</div>
+				<div className="carousel-item">
+					<img className="d-block w-100" src={pruebaImgUrl} alt="Third slide" />
 				</div>
 			</div>
 			<a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

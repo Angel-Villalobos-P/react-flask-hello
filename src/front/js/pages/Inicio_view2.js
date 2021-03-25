@@ -1,5 +1,6 @@
 import React from "react";
 import { Calendario } from "./Calendario";
+import Agenda from "./Agenda";
 
 export const Inicio_view2 = () => {
 	return (
@@ -56,6 +57,8 @@ export const Inicio_view2 = () => {
 					</div>
 				</div>
 			</div>
+			<Calendario />
+			{/* <Agenda /> */}
 		</div>
 	);
 };
