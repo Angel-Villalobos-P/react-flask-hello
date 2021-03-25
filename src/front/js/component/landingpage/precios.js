@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Contacto } from "./contacto";
 
 export const Precios = () => (
 	<div className="row border-top border-dark my-5 py-5 d-flex justify-content-center">
@@ -42,5 +43,6 @@ export const Precios = () => (
 				</button>
 			</div>
 		</div>
+		<Contacto />
 	</div>
 );

@@ -7,7 +7,6 @@ export const Caracteristicas2 = () => (
 			<div className="col-4">
 				<div className="card base-card">
 					<div className="card-body">
-						{/* <i className="fas fa-mobile-alt fa-3x" /> */}
 						<i className="fas fa-laptop fa-3x" />
 						<h5 className="card-title my-2">Fácil Uso</h5>
 						<p className="card-text">Maneja tus proyectos, tareas y clientes fácilmente</p>

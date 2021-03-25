@@ -11,6 +11,7 @@ export const Home = () => {
 		<div className="container">
 			<ClientesView />
 		</div>
+        
 		// <div className="text-center mt-5">
 		// 	<h1>Hello Rigo!</h1>
 		// 	<p>

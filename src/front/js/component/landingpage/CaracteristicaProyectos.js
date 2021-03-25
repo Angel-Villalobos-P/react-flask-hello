@@ -1,9 +1,11 @@
 import React from "react";
+import proyectosUrl from "../../../img/proyectos.png";
 
 export const CaracteristicaProyecto = () => (
 	<div className="row border-top border-dark my-5 py-5 d-flex justify-content-between">
 		<div className="col-4">
-			<img src="https://picsum.photos/400/200" alt="..." className="img-thumbnail" />
+			{/* <img src="https://picsum.photos/400/200" alt="..." className="img-thumbnail" /> */}
+			<img src={proyectosUrl} alt="..." className="img-thumbnail" />
 		</div>
 		<div className="col-6">
 			<div className="card">
